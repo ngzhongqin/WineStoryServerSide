@@ -1,0 +1,915 @@
+2015-07-19 00:00:25,681 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-19 00:00:26,000 319  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x0e191406] REGISTERED
+2015-07-19 00:00:26,001 320  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x0e191406] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-19 00:00:26,004 323  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x0e191406] CLOSE()
+2015-07-19 00:00:26,006 325  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x0e191406] UNREGISTERED
+2015-07-19 11:56:47,341 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-19 11:56:47,727 386  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3] REGISTERED
+2015-07-19 11:56:47,735 394  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-19 11:56:47,739 398  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-19 11:57:36,681 49340 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x8c77ace6, /0:0:0:0:0:0:0:1:49375 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:36,683 49342 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x3352d3b5, /0:0:0:0:0:0:0:1:49376 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:36,684 49343 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x70ec78ef, /0:0:0:0:0:0:0:1:49377 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:36,685 49344 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x5aa501a4, /0:0:0:0:0:0:0:1:49378 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:36,686 49345 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x168b6c4a, /0:0:0:0:0:0:0:1:49379 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:57,991 70650 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x355b1e56, /0:0:0:0:0:0:0:1:49418 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:57,991 70650 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xa3b9387f, /0:0:0:0:0:0:0:1:49419 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:57,992 70651 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x7322c053, /0:0:0:0:0:0:0:1:49420 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 11:57:57,997 70656 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xf5177200, /0:0:0:0:0:0:0:1:49421 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 12:04:35,881 468540 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x1917cb88, /0:0:0:0:0:0:0:1:49524 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 12:04:35,887 468546 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x2be36ab1, /0:0:0:0:0:0:0:1:49525 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 12:04:35,887 468546 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x5cb53971, /0:0:0:0:0:0:0:1:49526 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 12:05:30,301 522960 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x4009b0aa, /0:0:0:0:0:0:0:1:49558 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 12:05:30,302 522961 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xaa47bf73, /0:0:0:0:0:0:0:1:49559 => /0:0:0:0:0:0:0:1:8080]
+2015-07-19 12:05:30,305 522964 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x326585e3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xd52c353b, /0:0:0:0:0:0:0:1:49560 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 21:49:04,275 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 21:49:04,736 461  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x835986b8] REGISTERED
+2015-07-23 21:49:04,740 465  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x835986b8] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 21:49:04,743 468  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x835986b8] CLOSE()
+2015-07-23 21:49:04,745 470  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x835986b8] UNREGISTERED
+2015-07-23 21:49:15,631 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 21:49:15,907 276  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x9b134e56] REGISTERED
+2015-07-23 21:49:15,908 277  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x9b134e56] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 21:49:15,913 282  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x9b134e56, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 21:49:38,657 23026 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x9b134e56, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x31d8ed55, /0:0:0:0:0:0:0:1:51680 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 21:49:38,716 23085 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 21:49:38,719 23088 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 21:49:38,719 23088 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 21:49:38,723 23092 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 21:49:38,723 23092 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 21:49:38,723 23092 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 21:49:38,725 23094 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 21:49:38,728 23097 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 21:49:38,742 23111 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 21:49:38,742 23111 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 21:49:38,743 23112 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 21:49:38,743 23112 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 21:49:38,743 23112 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 21:49:38,744 23113 [nioEventLoopGroup-3-1] ERROR com.winestory.serverside.handler.signup.SignUpHandler  - incoming reqString that caused error: {"data":{}}
+2015-07-23 21:49:38,746 23115 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 21:49:38,746 23115 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 21:58:29,961 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 21:58:30,242 281  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x2d5c9353] REGISTERED
+2015-07-23 21:58:30,244 283  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x2d5c9353] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 21:58:30,248 287  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x2d5c9353, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 21:58:42,083 12122 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x2d5c9353, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xe9489f07, /0:0:0:0:0:0:0:1:51766 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 21:58:42,130 12169 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 21:58:42,133 12172 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 21:58:42,134 12173 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 21:58:42,136 12175 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 21:58:42,137 12176 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 21:58:42,137 12176 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 21:58:42,140 12179 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 21:58:42,142 12181 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 21:58:42,152 12191 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 21:58:42,152 12191 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 34, cap: 34, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 34
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 21:58:42,153 12192 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{"email":"123456@sf.com"}}
+2015-07-23 21:58:42,153 12192 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 21:58:42,153 12192 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{"email":"123456@sf.com"}}
+2015-07-23 21:58:42,155 12194 [nioEventLoopGroup-3-1] ERROR com.winestory.serverside.handler.signup.SignUpHandler  - incoming reqString that caused error: {"data":{"email":"123456@sf.com"}}
+2015-07-23 21:58:42,156 12195 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 21:58:42,156 12195 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:00:36,676 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:00:36,917 241  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xc270e02c] REGISTERED
+2015-07-23 22:00:36,922 246  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xc270e02c] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:00:36,926 250  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xc270e02c, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:00:42,605 5929 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xc270e02c, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x28a847fd, /0:0:0:0:0:0:0:1:51801 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:00:42,647 5971 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:00:42,650 5974 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:00:42,650 5974 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:00:42,654 5978 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:00:42,654 5978 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:01:16,501 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:01:16,712 211  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xbf2bc1ab] REGISTERED
+2015-07-23 22:01:16,713 212  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xbf2bc1ab] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:01:16,717 216  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xbf2bc1ab, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:01:35,455 18954 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xbf2bc1ab, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x0e40e612, /0:0:0:0:0:0:0:1:51807 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:01:35,500 18999 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:01:35,503 19002 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:01:35,503 19002 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:01:35,507 19006 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:01:35,507 19006 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:09:00,029 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:09:00,294 265  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x38750ed6] REGISTERED
+2015-07-23 22:09:00,296 267  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x38750ed6] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:09:00,300 271  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x38750ed6, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:09:11,851 11822 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x38750ed6, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x6fd36782, /0:0:0:0:0:0:0:1:51970 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:09:11,896 11867 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:09:11,899 11870 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:09:11,899 11870 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:09:11,901 11872 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:09:11,902 11873 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:11:36,657 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:11:36,909 252  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x16a46adb] REGISTERED
+2015-07-23 22:11:36,910 253  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x16a46adb] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:11:36,913 256  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x16a46adb, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:11:43,823 7166 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x16a46adb, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x62fcb5e0, /0:0:0:0:0:0:0:1:52002 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:11:43,872 7215 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:11:43,874 7217 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:11:43,875 7218 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:11:43,878 7221 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:11:43,878 7221 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:11:44,970 8313 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:11:45,018 8361 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:11:45,018 8361 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:11:45,020 8363 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:11:45,022 8365 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:11:45,031 8374 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:11:45,031 8374 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:11:45,032 8375 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:11:45,032 8375 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:11:45,032 8375 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:11:45,040 8383 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:11:45,061 8404 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x16a46adb, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x1159e931, /0:0:0:0:0:0:0:1:52006 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:11:45,063 8406 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:11:45,063 8406 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:11:45,063 8406 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:11:45,064 8407 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:11:45,064 8407 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:11:45,071 8414 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:12:33,671 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:12:33,925 254  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x5211748a] REGISTERED
+2015-07-23 22:12:33,928 257  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x5211748a] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:12:33,931 260  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x5211748a, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:12:55,634 21963 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x5211748a, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xe5971418, /0:0:0:0:0:0:0:1:52027 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:12:55,681 22010 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:12:55,683 22012 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:12:55,684 22013 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:12:55,687 22016 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:12:55,687 22016 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:12:56,776 23105 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:16:01,302 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:16:01,572 270  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x61266a7c] REGISTERED
+2015-07-23 22:16:01,573 271  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x61266a7c] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:16:01,576 274  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x61266a7c, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:16:17,925 16623 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x61266a7c, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x0022766f, /0:0:0:0:0:0:0:1:52169 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:16:17,974 16672 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:16:17,975 16673 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:16:17,976 16674 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:16:17,979 16677 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:16:17,979 16677 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:16:19,115 17813 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:16:19,165 17863 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:16:19,165 17863 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:16:19,167 17865 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:16:19,168 17866 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:16:19,178 17876 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:16:19,179 17877 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:16:19,179 17877 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:16:19,179 17877 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:16:19,179 17877 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:16:19,186 17884 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:16:19,202 17900 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x61266a7c, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xb89bf4a4, /0:0:0:0:0:0:0:1:52172 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:16:19,204 17902 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:16:19,204 17902 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:16:19,204 17902 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:16:19,204 17902 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:16:19,205 17903 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:16:19,210 17908 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:16:35,092 33790 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x61266a7c, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xa07506fa, /0:0:0:0:0:0:0:1:52175 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:16:35,094 33792 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:16:35,094 33792 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:16:35,094 33792 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:16:35,094 33792 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:16:35,095 33793 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:16:35,100 33798 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:22:45,492 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:22:45,787 295  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f] REGISTERED
+2015-07-23 22:22:45,789 297  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:22:45,793 301  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:22:50,907 5415 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xaf94dfdb, /0:0:0:0:0:0:0:1:52330 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:22:50,958 5466 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:22:50,959 5467 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:22:50,959 5467 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:22:50,962 5470 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:22:50,962 5470 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:22:52,131 6639 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:22:52,178 6686 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:22:52,178 6686 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:22:52,181 6689 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:22:52,182 6690 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:22:52,190 6698 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:22:52,190 6698 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:22:52,191 6699 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:22:52,191 6699 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:22:52,191 6699 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:22:52,196 6704 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:22:52,208 6716 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xfcad0eb8, /0:0:0:0:0:0:0:1:52333 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:22:52,210 6718 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:22:52,210 6718 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:22:52,211 6719 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:22:52,211 6719 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:22:52,211 6719 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:22:52,216 6724 [nioEventLoopGroup-3-2] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:23:10,835 25343 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x531d0587, /0:0:0:0:0:0:0:1:52335 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:23:10,837 25345 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:23:10,837 25345 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:23:10,838 25346 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:23:10,838 25346 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:23:10,838 25346 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:23:10,843 25351 [nioEventLoopGroup-3-3] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:24:18,223 92731 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x653248ae, /0:0:0:0:0:0:0:1:52352 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:24:18,225 92733 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:24:18,226 92734 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:24:18,226 92734 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:24:18,226 92734 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:24:18,227 92735 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:24:18,232 92740 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:24:18,247 92755 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:24:18,247 92755 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:24:18,247 92755 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:24:18,247 92755 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:24:18,256 92764 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:24:18,256 92764 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:24:18,256 92764 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:24:18,256 92764 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:24:18,256 92764 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:24:18,263 92771 [nioEventLoopGroup-3-4] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:24:18,280 92788 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x0263c67c, /0:0:0:0:0:0:0:1:52354 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:24:18,282 92790 [nioEventLoopGroup-3-5] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:24:18,282 92790 [nioEventLoopGroup-3-5] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:24:18,282 92790 [nioEventLoopGroup-3-5] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:24:18,282 92790 [nioEventLoopGroup-3-5] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:24:18,282 92790 [nioEventLoopGroup-3-5] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:24:18,286 92794 [nioEventLoopGroup-3-5] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:37:45,412 899920 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x2f07806e, /0:0:0:0:0:0:0:1:52828 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:37:45,414 899922 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:37:45,414 899922 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:37:45,414 899922 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:37:45,415 899923 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:37:45,415 899923 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:37:45,422 899930 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:37:45,437 899945 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:37:45,438 899946 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:37:45,438 899946 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:37:45,438 899946 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:37:45,444 899952 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:37:45,444 899952 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:37:45,444 899952 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:37:45,444 899952 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:37:45,444 899952 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:37:45,451 899959 [nioEventLoopGroup-3-6] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:37:45,459 899967 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0xbf3db637, /0:0:0:0:0:0:0:1:52830 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:37:45,461 899969 [nioEventLoopGroup-3-7] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:37:45,461 899969 [nioEventLoopGroup-3-7] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:37:45,461 899969 [nioEventLoopGroup-3-7] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:37:45,461 899969 [nioEventLoopGroup-3-7] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:37:45,461 899969 [nioEventLoopGroup-3-7] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:37:45,466 899974 [nioEventLoopGroup-3-7] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:37:57,053 911561 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x64bfa944, /0:0:0:0:0:0:0:1:52833 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:37:57,055 911563 [nioEventLoopGroup-3-8] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:37:57,055 911563 [nioEventLoopGroup-3-8] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:37:57,055 911563 [nioEventLoopGroup-3-8] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:37:57,056 911564 [nioEventLoopGroup-3-8] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:37:57,056 911564 [nioEventLoopGroup-3-8] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:37:57,062 911570 [nioEventLoopGroup-3-8] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:38:11,061 925569 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xca699d6f, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x75dd20d2, /0:0:0:0:0:0:0:1:52835 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:38:11,062 925570 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:38:11,063 925571 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:38:11,063 925571 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:38:11,063 925571 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:38:11,063 925571 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:38:11,069 925577 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:44:05,236 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:44:05,532 296  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x31b68bf3] REGISTERED
+2015-07-23 22:44:05,533 297  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x31b68bf3] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:44:05,538 302  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x31b68bf3, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:44:11,663 6427 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x31b68bf3, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x40dc4976, /0:0:0:0:0:0:0:1:52978 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:44:11,705 6469 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:44:11,707 6471 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:44:11,707 6471 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:44:11,710 6474 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:44:11,710 6474 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:44:12,765 7529 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:45:09,948 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:45:10,220 272  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xb26214de] REGISTERED
+2015-07-23 22:45:10,222 274  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xb26214de] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:45:10,226 278  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xb26214de, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:45:14,252 4304 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0xb26214de, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x31e60fe7, /0:0:0:0:0:0:0:1:53000 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:45:14,298 4350 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:45:14,299 4351 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:45:14,300 4352 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:45:14,303 4355 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:45:14,303 4355 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:45:15,273 5325 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:45:15,342 5394 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:45:15,342 5394 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:45:15,346 5398 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:45:15,348 5400 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:45:15,359 5411 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:45:15,360 5412 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:45:15,360 5412 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:45:15,360 5412 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:45:15,361 5413 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:45:15,368 5420 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:45:15,372 5424 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:45:15,373 5425 [nioEventLoopGroup-3-1] ERROR com.winestory.serverside.handler.signup.SignUpHandler  - incoming reqString that caused error: {"data":{}}
+2015-07-23 22:45:15,374 5426 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:45:15,374 5426 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:45:26,870 16922 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:45:26,870 16922 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:45:26,871 16923 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:45:26,871 16923 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:45:26,871 16923 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:45:26,878 16930 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:45:26,882 16934 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:45:26,882 16934 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:45:26,882 16934 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:45:26,882 16934 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:45:26,890 16942 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:45:26,890 16942 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 34, cap: 34, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 34
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:45:26,890 16942 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{"email":"123456@sf.com"}}
+2015-07-23 22:45:26,890 16942 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:45:26,890 16942 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{"email":"123456@sf.com"}}
+2015-07-23 22:45:26,896 16948 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:45:26,899 16951 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:45:26,900 16952 [nioEventLoopGroup-3-1] ERROR com.winestory.serverside.handler.signup.SignUpHandler  - incoming reqString that caused error: {"data":{"email":"123456@sf.com"}}
+2015-07-23 22:45:26,900 16952 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:45:26,900 16952 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:45:38,848 28900 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:45:38,848 28900 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:45:38,848 28900 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:45:38,848 28900 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:45:38,848 28900 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:45:38,857 28909 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:45:38,863 28915 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:45:38,863 28915 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - this is normal. incoming request is empty
+2015-07-23 22:45:38,863 28915 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:45:38,864 28916 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:45:38,869 28921 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:45:38,869 28921 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 34, cap: 34, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 34
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:45:38,869 28921 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{"email":"123456@sf.com"}}
+2015-07-23 22:45:38,870 28922 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:45:38,870 28922 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{"email":"123456@sf.com"}}
+2015-07-23 22:45:38,875 28927 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:45:38,878 28930 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:45:38,878 28930 [nioEventLoopGroup-3-1] ERROR com.winestory.serverside.handler.signup.SignUpHandler  - incoming reqString that caused error: {"data":{"email":"123456@sf.com"}}
+2015-07-23 22:45:38,879 28931 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:45:38,879 28931 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:47:58,941 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:47:59,311 370  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x8550dba8] REGISTERED
+2015-07-23 22:47:59,313 372  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x8550dba8] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:47:59,317 376  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x8550dba8, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:48:20,086 21145 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x8550dba8, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x4b9cade5, /0:0:0:0:0:0:0:1:53039 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:48:20,131 21190 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:48:20,133 21192 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:48:20,133 21192 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:48:20,136 21195 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:48:20,136 21195 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:48:21,199 22258 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:48:21,263 22322 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:48:21,265 22324 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:48:21,266 22325 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:48:21,277 22336 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:48:21,278 22337 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 34, cap: 34, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 34
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:48:21,278 22337 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{"email":"123456@sf.com"}}
+2015-07-23 22:48:21,278 22337 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:48:21,278 22337 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{"email":"123456@sf.com"}}
+2015-07-23 22:48:21,284 22343 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:48:21,287 22346 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:48:21,287 22346 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:48:21,288 22347 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:49:06,185 0    [main] INFO  com.winestory.serverside.Main  - Started Main.class
+2015-07-23 22:49:06,460 275  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x450d8c5a] REGISTERED
+2015-07-23 22:49:06,462 277  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x450d8c5a] BIND(0.0.0.0/0.0.0.0:8080)
+2015-07-23 22:49:06,466 281  [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x450d8c5a, /0:0:0:0:0:0:0:0:8080] ACTIVE
+2015-07-23 22:49:34,634 28449 [nioEventLoopGroup-2-1] INFO  io.netty.handler.logging.LoggingHandler  - [id: 0x450d8c5a, /0:0:0:0:0:0:0:0:8080] RECEIVED: [id: 0x85466a93, /0:0:0:0:0:0:0:1:53059 => /0:0:0:0:0:0:0:1:8080]
+2015-07-23 22:49:34,686 28501 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:49:34,688 28503 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:49:34,688 28503 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:49:34,692 28507 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:49:34,692 28507 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:49:35,765 29580 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:49:35,850 29665 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:49:35,854 29669 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:49:35,856 29671 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:49:35,872 29687 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:49:35,872 29687 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:49:35,872 29687 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:49:35,872 29687 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:49:35,873 29688 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:49:35,886 29701 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:49:35,893 29708 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:49:35,893 29708 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:49:35,893 29708 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:50:50,422 104237 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:50:50,423 104238 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:50:50,423 104238 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:50:50,423 104238 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:50:50,423 104238 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:50:50,431 104246 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:50:50,436 104251 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:50:50,436 104251 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:50:50,436 104251 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:50:50,442 104257 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:50:50,443 104258 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 11, cap: 11, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 11
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:50:50,443 104258 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{}}
+2015-07-23 22:50:50,443 104258 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:50:50,443 104258 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{}}
+2015-07-23 22:50:50,448 104263 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:50:50,451 104266 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:50:50,452 104267 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:50:50,452 104267 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:51:13,909 127724 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:51:13,910 127725 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 0, cap: 0, components=0))
+OPTIONS /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Access-Control-Request-Method: POST
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Access-Control-Request-Headers: accept, content-type
+Accept: */*
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+Content-Length: 0
+2015-07-23 22:51:13,910 127725 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: 
+2015-07-23 22:51:13,910 127725 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:51:13,910 127725 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:
+2015-07-23 22:51:13,915 127730 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:51:13,921 127736 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:51:13,921 127736 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:51:13,921 127736 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
+2015-07-23 22:51:13,928 127743 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - channelRead Start
+2015-07-23 22:51:13,928 127743 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - FullHttpRequest: HttpObjectAggregator$AggregatedFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: CompositeByteBuf(ridx: 0, widx: 34, cap: 34, components=1))
+POST /signup HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 34
+Accept: application/json, text/plain, */*
+Origin: http://localhost:9000
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36
+Content-Type: application/json
+Referer: http://localhost:9000/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+2015-07-23 22:51:13,928 127743 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.router.RouteInboundHandler  - content: {"data":{"email":"123456@sf.com"}}
+2015-07-23 22:51:13,928 127743 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - Method: signUp
+2015-07-23 22:51:13,928 127743 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.handler.signup.SignUpHandler  - content:{"data":{"email":"123456@sf.com"}}
+2015-07-23 22:51:13,937 127752 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save
+2015-07-23 22:51:13,939 127754 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.database.PersistManager  - Method: save end
+2015-07-23 22:51:13,940 127755 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - Method: respond
+2015-07-23 22:51:13,940 127755 [nioEventLoopGroup-3-1] INFO  com.winestory.serverside.framework.response.HTTPResponder  - respond: {"last_name":"ng","first_name":"zhongqin","email":"123456@sf.com"}
