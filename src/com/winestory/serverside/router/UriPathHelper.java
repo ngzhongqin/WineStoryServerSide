@@ -2,6 +2,7 @@ package com.winestory.serverside.router;
 
 /**
  * Created by zhongqinng on 15/6/15.
+ * URI Path Helper. Converts URI patterns to the correct URIPATH
  */
 public class UriPathHelper {
     public UriPathHelper(){
