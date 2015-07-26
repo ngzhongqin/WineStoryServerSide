@@ -36,15 +36,19 @@ public class SignUpHandler {
                     String password = (String) data.get("password");
                     String full_name = (String) data.get("full_name");
 
-                    UserVO userVO = new UserVO(full_name,email);
                     UserDAO userDAO = new UserDAO();
-                    userDAO.createNewUser(userVO);
+
+                    boolean checkIfEmailIsTaken = userDAO.checkIfEmailIsTaken(email);
+                    if(!checkIfEmailIsTaken){
+                        UserVO userVO = new UserVO(full_name,email);
+                        userDAO.createNewUser(userVO);
+                    }
 
                     respond(ctx, req);
 
 
                 }else{
-                    logger.info("this is normal. incoming request is empty");
+                    logger.info("INCOMING REQUEST IS EMPTY!");
                 }
             }
         } catch (JSONException e) {
