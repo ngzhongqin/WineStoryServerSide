@@ -1,4 +1,4 @@
-package com.winestory.serverside.framework.database;
+package com.winestory.serverside.framework.database.Entity;
 
 import javax.persistence.*;
 

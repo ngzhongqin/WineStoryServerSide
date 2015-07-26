@@ -3,7 +3,7 @@
 
     <persistence-unit name="winestory">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>com.winestory.serverside.framework.database.UserEntity</class>
+        <class>com.winestory.serverside.framework.database.Entity.UserEntity</class>
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/winestory"/>
             <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>

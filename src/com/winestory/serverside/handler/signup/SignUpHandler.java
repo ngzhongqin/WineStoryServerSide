@@ -1,7 +1,6 @@
 package com.winestory.serverside.handler.signup;
 
 import com.winestory.serverside.framework.database.PersistManager;
-import com.winestory.serverside.framework.database.UserEntity;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
@@ -46,7 +45,7 @@ public class SignUpHandler {
                                     " email: " + email
                     );
 
-                    respond(ctx,req);
+                    respond(ctx, req);
 
 
                 }else{

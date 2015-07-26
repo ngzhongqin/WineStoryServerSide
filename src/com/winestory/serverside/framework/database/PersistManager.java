@@ -1,12 +1,12 @@
 package com.winestory.serverside.framework.database;
 
+import com.winestory.serverside.framework.database.Entity.UserEntity;
 import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.nio.channels.Pipe;
 
 /**
  * Created by zhongqinng on 23/7/15.
