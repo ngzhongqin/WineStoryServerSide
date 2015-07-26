@@ -56,6 +56,10 @@ public class RouteInboundHandler extends ChannelInboundHandlerAdapter {
                     SignUpHandler signUpHandler = new SignUpHandler();
                     signUpHandler.signUp(ctx, fullHttpRequest);
                     break;
+                case LOGIN:
+                    LoginHandler loginHandler = new LoginHandler();
+                    loginHandler.login(ctx, fullHttpRequest);
+                    break;
                 default:
                     break;
             }

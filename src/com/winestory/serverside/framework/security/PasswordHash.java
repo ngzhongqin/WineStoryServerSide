@@ -46,17 +46,17 @@ public class PasswordHash
 {
     public PasswordHash(){};
 
-    public final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
-    public Logger logger = Logger.getLogger(PasswordHash.class);
+    private final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
+    private Logger logger = Logger.getLogger(PasswordHash.class);
 
     // The following constants may be changed without breaking existing hashes.
-    public final int SALT_BYTE_SIZE = 24;
-    public final int HASH_BYTE_SIZE = 24;
-    public final int PBKDF2_ITERATIONS = 1000;
+    private final int SALT_BYTE_SIZE = 24;
+    private final int HASH_BYTE_SIZE = 24;
+    private final int PBKDF2_ITERATIONS = 1000;
 
-    public final int ITERATION_INDEX = 0;
-    public final int SALT_INDEX = 1;
-    public final int PBKDF2_INDEX = 2;
+    private final int ITERATION_INDEX = 0;
+    private final int SALT_INDEX = 1;
+    private final int PBKDF2_INDEX = 2;
 
     /**
      * Returns a salted PBKDF2 hash of the password.
@@ -112,7 +112,7 @@ public class PasswordHash
      * @param   correctHash     the hash of the valid password
      * @return                  true if the password is correct, false if not
      */
-    public boolean validatePassword(char[] password, String correctHash)
+    private boolean validatePassword(char[] password, String correctHash)
             throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         // Decode the hash into its parameters
