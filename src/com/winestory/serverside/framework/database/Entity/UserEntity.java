@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "user", schema = "winestory", catalog = "winestory")
 public class UserEntity {
     private String email;
+    private String full_name;
 
     @Id
     @SequenceGenerator(name="user_id_seq",
@@ -22,6 +23,16 @@ public class UserEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "full_name")
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
     @Basic

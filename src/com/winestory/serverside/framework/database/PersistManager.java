@@ -21,6 +21,11 @@ public class PersistManager {
         em = entityManagerFactory.createEntityManager();
     }
 
+    public EntityManager getEm(){
+        return em;
+    }
+
+    /*
     public void save(String email){
         logger.info("Method: save");
         EntityTransaction tx = em.getTransaction();
@@ -31,4 +36,5 @@ public class PersistManager {
         tx.commit();
         logger.info("Method: save end");
     }
+    */
 }

@@ -1,6 +1,7 @@
 package com.winestory.serverside.handler.signup;
 
-import com.winestory.serverside.framework.database.PersistManager;
+import com.winestory.serverside.framework.VO.UserVO;
+import com.winestory.serverside.framework.database.DAO.UserDAO;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
@@ -25,9 +26,6 @@ public class SignUpHandler {
 
         String reqString = req.content().toString(CharsetUtil.UTF_8);
 
-        PersistManager persistManager = new PersistManager();
-
-
         try {
             if(reqString!=null) {
                 if(!reqString.isEmpty()) {
@@ -38,12 +36,9 @@ public class SignUpHandler {
                     String password = (String) data.get("password");
                     String full_name = (String) data.get("full_name");
 
-
-                    persistManager.save(email);
-                    logger.info("TRY first name: " + password +
-                                    " last_name: " + full_name +
-                                    " email: " + email
-                    );
+                    UserVO userVO = new UserVO(full_name,email);
+                    UserDAO userDAO = new UserDAO();
+                    userDAO.createNewUser(userVO);
 
                     respond(ctx, req);
 
