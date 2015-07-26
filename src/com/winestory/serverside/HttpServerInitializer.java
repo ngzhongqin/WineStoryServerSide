@@ -6,8 +6,11 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.codec.http.HttpRequestDecoder;
+import io.netty.handler.codec.http.HttpResponseEncoder;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.ssl.SslContext;
+import io.netty.util.ReferenceCountUtil;
 
 public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
 
@@ -25,8 +28,12 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
         }
 
         p.addLast("codec",new HttpServerCodec());
+
+//        p.addLast("encoder", new HttpResponseEncoder());
+//        p.addLast("decoder", new HttpRequestDecoder());
         p.addLast("aggregator", new HttpObjectAggregator(512 * 1024));
 
         p.addLast(new RouteInboundHandler());
+
     }
 }

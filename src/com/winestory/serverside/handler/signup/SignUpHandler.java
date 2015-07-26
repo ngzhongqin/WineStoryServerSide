@@ -27,24 +27,28 @@ public class SignUpHandler {
         String reqString = req.content().toString(CharsetUtil.UTF_8);
 
         PersistManager persistManager = new PersistManager();
-        persistManager.save();
 
-/*
+
         try {
             if(reqString!=null) {
                 if(!reqString.isEmpty()) {
                     JSONObject incoming = new JSONObject(reqString);
-                    JSONObject user = (JSONObject) incoming.get("user_sign_up");
-                    String first_name = (String) user.get("first_name");
-                    String last_name = (String) user.get("last_name");
-                    String email = (String) user.get("email");
+                    JSONObject data = (JSONObject) incoming.get("data");
+
+                    String email = (String) data.get("email");
+                    String password = (String) data.get("password");
+                    String full_name = (String) data.get("full_name");
 
 
-
-                    logger.info("TRY first name: " + first_name +
-                                    " last_name: " + last_name +
+                    persistManager.save(email);
+                    logger.info("TRY first name: " + password +
+                                    " last_name: " + full_name +
                                     " email: " + email
                     );
+
+                    respond(ctx,req);
+
+
                 }else{
                     logger.info("this is normal. incoming request is empty");
                 }
@@ -53,21 +57,25 @@ public class SignUpHandler {
             logger.error("incoming reqString that caused error: "+reqString);
             e.printStackTrace();
         }
-*/
 
+
+
+
+    }
+
+    private void respond(ChannelHandlerContext ctx, FullHttpRequest req){
         JSONObject jsonObject = new JSONObject();
 
         try {
             jsonObject.put("email","123456@sf.com");
-            jsonObject.put("first_name","zhongqin");
-            jsonObject.put("last_name", "ng");
+            jsonObject.put("full_name","Zhong Qin");
+            jsonObject.put("password", "password_input");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
         httpResponder.respond(ctx,req,jsonObject);
-
 
     }
 

@@ -21,11 +21,11 @@ public class PersistManager {
         em = entityManagerFactory.createEntityManager();
     }
 
-    public void save(){
+    public void save(String email){
         logger.info("Method: save");
         EntityTransaction tx = em.getTransaction();
         UserEntity user = new UserEntity();
-        user.setEmail("1@test.com");
+        user.setEmail(email);
         tx.begin();
         em.persist(user);
         tx.commit();
