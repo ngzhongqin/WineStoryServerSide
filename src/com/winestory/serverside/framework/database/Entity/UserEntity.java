@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class UserEntity {
     private String email;
     private String full_name;
+    private String password_salt_hash;
 
     @Id
     @SequenceGenerator(name="user_id_seq",
@@ -43,6 +44,16 @@ public class UserEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Basic
+    @Column(name = "password_salt_hash")
+    public String getPassword_salt_hash() {
+        return password_salt_hash;
+    }
+
+    public void setPassword_salt_hash(String password_salt_hash) {
+        this.password_salt_hash = password_salt_hash;
     }
 
     @Override

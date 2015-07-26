@@ -3,12 +3,16 @@ package com.winestory.serverside.handler.signup;
 import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
 import com.winestory.serverside.framework.response.HTTPResponder;
+import com.winestory.serverside.framework.security.PasswordHash;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.util.CharsetUtil;
 import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 
 public class SignUpHandler {
@@ -21,7 +25,6 @@ public class SignUpHandler {
 
     public void signUp(ChannelHandlerContext ctx, FullHttpRequest req){
         logger.info("Method: signUp");
-
         logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
 
         String reqString = req.content().toString(CharsetUtil.UTF_8);
@@ -40,8 +43,18 @@ public class SignUpHandler {
 
                     boolean checkIfEmailIsTaken = userDAO.checkIfEmailIsTaken(email);
                     if(!checkIfEmailIsTaken){
-                        UserVO userVO = new UserVO(full_name,email);
-                        userDAO.createNewUser(userVO);
+                        String password_salt_hash;
+
+                        PasswordHash passwordHash = new PasswordHash();
+                        try {
+                            password_salt_hash=passwordHash.createHash(password);
+                            UserVO userVO = new UserVO(full_name,email,password_salt_hash);
+                            userDAO.createNewUser(userVO);
+                        } catch (NoSuchAlgorithmException e) {
+                            e.printStackTrace();
+                        } catch (InvalidKeySpecException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     respond(ctx, req);
@@ -55,10 +68,6 @@ public class SignUpHandler {
             logger.error("incoming reqString that caused error: "+reqString);
             e.printStackTrace();
         }
-
-
-
-
     }
 
     private void respond(ChannelHandlerContext ctx, FullHttpRequest req){

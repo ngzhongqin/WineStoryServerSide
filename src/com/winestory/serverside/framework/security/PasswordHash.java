@@ -28,6 +28,8 @@ package com.winestory.serverside.framework.security;
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+import org.apache.log4j.Logger;
+
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.math.BigInteger;
@@ -42,16 +44,19 @@ import java.security.spec.InvalidKeySpecException;
  */
 public class PasswordHash
 {
-    public static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
+    public PasswordHash(){};
+
+    public final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
+    public Logger logger = Logger.getLogger(PasswordHash.class);
 
     // The following constants may be changed without breaking existing hashes.
-    public static final int SALT_BYTE_SIZE = 24;
-    public static final int HASH_BYTE_SIZE = 24;
-    public static final int PBKDF2_ITERATIONS = 1000;
+    public final int SALT_BYTE_SIZE = 24;
+    public final int HASH_BYTE_SIZE = 24;
+    public final int PBKDF2_ITERATIONS = 1000;
 
-    public static final int ITERATION_INDEX = 0;
-    public static final int SALT_INDEX = 1;
-    public static final int PBKDF2_INDEX = 2;
+    public final int ITERATION_INDEX = 0;
+    public final int SALT_INDEX = 1;
+    public final int PBKDF2_INDEX = 2;
 
     /**
      * Returns a salted PBKDF2 hash of the password.
@@ -59,7 +64,7 @@ public class PasswordHash
      * @param   password    the password to hash
      * @return              a salted PBKDF2 hash of the password
      */
-    public static String createHash(String password)
+    public String createHash(String password)
             throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         return createHash(password.toCharArray());
@@ -71,7 +76,7 @@ public class PasswordHash
      * @param   password    the password to hash
      * @return              a salted PBKDF2 hash of the password
      */
-    public static String createHash(char[] password)
+    private String createHash(char[] password)
             throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         // Generate a random salt
@@ -82,6 +87,8 @@ public class PasswordHash
         // Hash the password
         byte[] hash = pbkdf2(password, salt, PBKDF2_ITERATIONS, HASH_BYTE_SIZE);
         // format iterations:salt:hash
+
+        logger.info("createHash:"+PBKDF2_ITERATIONS + ":" + toHex(salt) + ":" +  toHex(hash));
         return PBKDF2_ITERATIONS + ":" + toHex(salt) + ":" +  toHex(hash);
     }
 
@@ -92,7 +99,7 @@ public class PasswordHash
      * @param   correctHash     the hash of the valid password
      * @return                  true if the password is correct, false if not
      */
-    public static boolean validatePassword(String password, String correctHash)
+    public boolean validatePassword(String password, String correctHash)
             throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         return validatePassword(password.toCharArray(), correctHash);
@@ -105,7 +112,7 @@ public class PasswordHash
      * @param   correctHash     the hash of the valid password
      * @return                  true if the password is correct, false if not
      */
-    public static boolean validatePassword(char[] password, String correctHash)
+    public boolean validatePassword(char[] password, String correctHash)
             throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         // Decode the hash into its parameters
@@ -130,7 +137,7 @@ public class PasswordHash
      * @param   b       the second byte array
      * @return          true if both byte arrays are the same, false if not
      */
-    private static boolean slowEquals(byte[] a, byte[] b)
+    private boolean slowEquals(byte[] a, byte[] b)
     {
         int diff = a.length ^ b.length;
         for(int i = 0; i < a.length && i < b.length; i++)
@@ -147,7 +154,7 @@ public class PasswordHash
      * @param   bytes       the length of the hash to compute in bytes
      * @return              the PBDKF2 hash of the password
      */
-    private static byte[] pbkdf2(char[] password, byte[] salt, int iterations, int bytes)
+    private byte[] pbkdf2(char[] password, byte[] salt, int iterations, int bytes)
             throws NoSuchAlgorithmException, InvalidKeySpecException
     {
         PBEKeySpec spec = new PBEKeySpec(password, salt, iterations, bytes * 8);

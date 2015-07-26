@@ -6,7 +6,6 @@ import com.winestory.serverside.framework.database.PersistManager;
 import org.apache.log4j.Logger;
 
 import javax.persistence.EntityTransaction;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,6 +24,7 @@ public class UserDAO {
         UserEntity userEntity = new UserEntity();
         userEntity.setEmail(userVO.getEmail());
         userEntity.setFull_name(userVO.getFull_name());
+        userEntity.setPassword_salt_hash(userVO.getPassword_salt_hash());
         tx.begin();
         persistManager.getEm().persist(userEntity);
         tx.commit();
@@ -47,18 +47,25 @@ public class UserDAO {
         return returnBoolean;
     }
 
+    public UserVO getUser(String email){
+        UserVO userVO = null;
+        try {
+            UserEntity userEntity =
+                    (UserEntity) persistManager.getEm()
+                            .createQuery("SELECT u FROM UserEntity u where u.email= :email")
+                            .setParameter("email", email)
+                            .getSingleResult();
+            if(userEntity!=null){
+                userVO = new UserVO(userEntity.getFull_name(),
+                                    userEntity.getEmail(),
+                                    userEntity.getPassword_salt_hash());
+            }
+        }catch (Exception e){
+            logger.error("getUser: ERROR: "+e.getMessage());
+        }
 
-
-    /*
-    public void save(String email){
-        logger.info("Method: save");
-        EntityTransaction tx = em.getTransaction();
-        UserEntity user = new UserEntity();
-        user.setEmail(email);
-        tx.begin();
-        em.persist(user);
-        tx.commit();
-        logger.info("Method: save end");
+        return userVO;
     }
-    */
+
+
 }

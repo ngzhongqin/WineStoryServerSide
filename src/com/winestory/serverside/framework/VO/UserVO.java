@@ -7,11 +7,14 @@ package com.winestory.serverside.framework.VO;
 public class UserVO {
     private String full_name;
     private String email;
+    private String password_salt_hash;
 
     public UserVO(String full_name,
-                  String email){
+                  String email,
+                  String password_salt_hash){
         this.full_name = full_name;
         this.email = email;
+        this.password_salt_hash = password_salt_hash;
     }
 
     public String getFull_name() {
@@ -28,5 +31,13 @@ public class UserVO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword_salt_hash() {
+        return password_salt_hash;
+    }
+
+    public void setPassword_salt_hash(String password_salt_hash) {
+        this.password_salt_hash = password_salt_hash;
     }
 }
