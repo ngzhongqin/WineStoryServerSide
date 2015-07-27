@@ -1,6 +1,9 @@
 package com.winestory.serverside.handler.login;
 
+import com.winestory.serverside.framework.UUIDGenerator;
+import com.winestory.serverside.framework.VO.SessionVO;
 import com.winestory.serverside.framework.VO.UserVO;
+import com.winestory.serverside.framework.database.DAO.SessionDAO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.framework.security.PasswordHash;
@@ -41,15 +44,34 @@ public class LoginHandler {
                     UserDAO userDAO = new UserDAO();
                     UserVO userVO = userDAO.getUser(email);
 
-                    PasswordHash passwordHash = new PasswordHash();
-                    try {
-                        boolean isPasswordCorrect = passwordHash.validatePassword(password,userVO.getPassword_salt_hash());
-                        logger.info("login: email:"+email+" isPasswordCorrect="+isPasswordCorrect);
-                    } catch (NoSuchAlgorithmException e) {
-                        e.printStackTrace();
-                    } catch (InvalidKeySpecException e) {
-                        e.printStackTrace();
+                    //check if there is such user
+                    if(userVO!=null){
+                        boolean isPasswordCorrect = false;
+                        try {
+                            //validate password
+                            PasswordHash passwordHash = new PasswordHash();
+                            isPasswordCorrect = passwordHash.validatePassword(password,userVO.getPassword_salt_hash());
+                            logger.info("login: email:"+email+" isPasswordCorrect="+isPasswordCorrect);
+                        } catch (NoSuchAlgorithmException e) {
+                            e.printStackTrace();
+                        } catch (InvalidKeySpecException e) {
+                            e.printStackTrace();
+                        }
+
+                        //if Password is correct
+                        if(isPasswordCorrect){
+                            UUIDGenerator uuidGenerator = new UUIDGenerator();
+                            String new_session_id = uuidGenerator.getUUID();
+                            logger.info("login: new_session_id:"+new_session_id);
+                            SessionDAO sessionDAO = new SessionDAO();
+                            SessionVO sessionVO = new SessionVO(new_session_id,userVO.getId());
+                            sessionDAO.createSession(sessionVO);
+
+                        }
+
                     }
+
+
 
                     respond(ctx, req);
 

@@ -7,7 +7,7 @@
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="808b50ca-e527-4d1d-91ec-7bb67dd3e671" />
-          <factory-entry name="winestory" />
+          <factory-entry name="winestory" value="396c41eb-9cc6-489b-bf40-0e19804b7cdc" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>

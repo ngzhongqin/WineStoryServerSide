@@ -5,9 +5,20 @@ package com.winestory.serverside.framework.VO;
  * User Value Object
  */
 public class UserVO {
+    private Long id;
     private String full_name;
     private String email;
     private String password_salt_hash;
+
+    public UserVO(Long id,
+                String full_name,
+                  String email,
+                  String password_salt_hash){
+        this.id=id;
+        this.full_name = full_name;
+        this.email = email;
+        this.password_salt_hash = password_salt_hash;
+    }
 
     public UserVO(String full_name,
                   String email,
@@ -39,5 +50,13 @@ public class UserVO {
 
     public void setPassword_salt_hash(String password_salt_hash) {
         this.password_salt_hash = password_salt_hash;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

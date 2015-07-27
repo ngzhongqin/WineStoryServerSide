@@ -39,17 +39,19 @@ public class SignUpHandler {
                     String password = (String) data.get("password");
                     String full_name = (String) data.get("full_name");
 
-                    UserDAO userDAO = new UserDAO();
 
+                    UserDAO userDAO = new UserDAO();
                     boolean checkIfEmailIsTaken = userDAO.checkIfEmailIsTaken(email);
                     if(!checkIfEmailIsTaken){
                         String password_salt_hash;
 
                         PasswordHash passwordHash = new PasswordHash();
                         try {
+
                             password_salt_hash=passwordHash.createHash(password);
                             UserVO userVO = new UserVO(full_name,email,password_salt_hash);
                             userDAO.createNewUser(userVO);
+                            userDAO.close();
                         } catch (NoSuchAlgorithmException e) {
                             e.printStackTrace();
                         } catch (InvalidKeySpecException e) {

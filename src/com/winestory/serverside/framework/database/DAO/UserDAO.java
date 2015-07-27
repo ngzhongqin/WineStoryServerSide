@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by zhongqinng on 26/7/15.
+ * UserDAO
  */
 public class UserDAO {
     public Logger logger = Logger.getLogger(UserDAO.class);
@@ -18,6 +19,10 @@ public class UserDAO {
     public UserDAO(){
         persistManager = new PersistManager();
     };
+
+    public void close(){
+        persistManager.close();
+    }
 
     public void createNewUser(UserVO userVO){
         EntityTransaction tx = persistManager.getEm().getTransaction();
@@ -56,7 +61,8 @@ public class UserDAO {
                             .setParameter("email", email)
                             .getSingleResult();
             if(userEntity!=null){
-                userVO = new UserVO(userEntity.getFull_name(),
+                userVO = new UserVO(userEntity.getId(),
+                                    userEntity.getFull_name(),
                                     userEntity.getEmail(),
                                     userEntity.getPassword_salt_hash());
             }

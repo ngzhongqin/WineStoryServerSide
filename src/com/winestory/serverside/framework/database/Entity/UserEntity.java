@@ -21,7 +21,7 @@ public class UserEntity {
     @Column(name = "id", updatable=false)
     private Long id;
 
-
+    public Long getId(){return this.id;}
     public void setId(Long id) {
         this.id = id;
     }
