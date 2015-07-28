@@ -6,12 +6,49 @@
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
     <schema name="winestory" catalog="winestory"/>
-    <table name="user" schema="winestory" catalog="winestory" type="TABLE">
-      <column name="user_id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnd2luZXN0b3J5LnVzZXJfdXNlcl9pZF9zZXEnOjpyZWdjbGFzcyk=" autoIncrement="true"/>
-      <column name="email" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="user_pkey" columns="user_id"/>
+    <table name="session" schema="winestory" catalog="winestory" type="TABLE">
+      <column name="id" sqlType="bpchar" precision="40" scale="0" nullable="false" jdbcType="1"/>
+      <column name="user_id" sqlType="int4" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time_created" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93" def="bm93KCk="/>
+      <column name="time_updated" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93" def="bm93KCk="/>
+      <primary-key name="session_pkey" columns="id"/>
     </table>
-    <table name="user_user_id_seq" schema="winestory" catalog="winestory" type="SEQUENCE">
+    <table name="user" schema="winestory" catalog="winestory" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnd2luZXN0b3J5LnVzZXJfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="email" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="full_name" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password_salt_hash" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="user_pkey" columns="id"/>
+      <index name="user_email_key" unique="true" columns="email"/>
+    </table>
+    <table name="user_id_seq" schema="winestory" catalog="winestory" type="SEQUENCE">
+      <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="increment_by" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="max_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="min_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="cache_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="log_cnt" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="is_cycled" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="is_called" sqlType="bool" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+    </table>
+    <table name="wine" schema="winestory" catalog="winestory" type="TABLE">
+      <column name="id" sqlType="serial" precision="10" scale="0" nullable="false" jdbcType="4" def="bmV4dHZhbCgnd2luZXN0b3J5LndpbmVfaWRfc2VxJzo6cmVnY2xhc3Mp" autoIncrement="true"/>
+      <column name="name" sqlType="varchar" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="image_path" sqlType="varchar" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tasting_note" sqlType="varchar" precision="1000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="year" sqlType="varchar" precision="4" scale="0" nullable="true" jdbcType="12"/>
+      <column name="colour" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nose" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="palate" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="grapes" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="volume" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="available_stock" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="price" sqlType="numeric" precision="131089" scale="0" nullable="true" jdbcType="2"/>
+      <primary-key name="wine_pkey" columns="id"/>
+    </table>
+    <table name="wine_id_seq" schema="winestory" catalog="winestory" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
       <column name="last_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="start_value" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>

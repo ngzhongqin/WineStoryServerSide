@@ -21,6 +21,9 @@ public class UriPathHelper {
             if(uriPathString.toLowerCase().equals("/signup")){
                 uriPath=UriPath.SIGNUP;
             }
+            if(uriPathString.toLowerCase().equals("/store")){
+                uriPath=UriPath.STORE;
+            }
         }
 
         return uriPath;

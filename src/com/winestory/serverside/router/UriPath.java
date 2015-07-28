@@ -4,5 +4,6 @@ public enum UriPath {
     INVALID,
     LOGIN,
     SIGNUP,
-    LOGOUT
+    LOGOUT,
+    STORE
 }

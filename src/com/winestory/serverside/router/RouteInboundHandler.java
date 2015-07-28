@@ -2,6 +2,7 @@ package com.winestory.serverside.router;
 
 import com.winestory.serverside.handler.login.LoginHandler;
 import com.winestory.serverside.handler.signup.SignUpHandler;
+import com.winestory.serverside.handler.store.StoreHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.FullHttpRequest;
@@ -51,6 +52,10 @@ public class RouteInboundHandler extends ChannelInboundHandlerAdapter {
                 case LOGIN:
                     LoginHandler loginHandler = new LoginHandler();
                     loginHandler.login(ctx, fullHttpRequest);
+                    break;
+                case STORE:
+                    StoreHandler storeHandler = new StoreHandler();
+                    storeHandler.getStore(ctx, fullHttpRequest);
                     break;
                 default:
                     break;
