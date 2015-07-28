@@ -23,7 +23,7 @@ public class LoginJSONHelper {
         try {
             jsonObject.put("code","SEC-100");
             jsonObject.put("message","Login Successful");
-            jsonObject.put("session_id",sessionVO.getId());
+            jsonObject.put("winestory_session",sessionVO.getId());
             returnJsonObject.put("data",jsonObject);
         } catch (JSONException e) {
             logger.error("getJSONLoginSuccess ERROR:" + e.getMessage());
