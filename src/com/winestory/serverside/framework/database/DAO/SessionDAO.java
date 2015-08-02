@@ -2,7 +2,7 @@ package com.winestory.serverside.framework.database.DAO;
 
 import com.winestory.serverside.framework.VO.SessionVO;
 import com.winestory.serverside.framework.database.Entity.SessionEntity;
-import com.winestory.serverside.framework.database.PersistManager;
+import com.winestory.serverside.framework.database.PersistenceManager;
 import org.apache.log4j.Logger;
 
 import javax.persistence.EntityTransaction;
@@ -14,10 +14,10 @@ import java.sql.Timestamp;
  */
 public class SessionDAO {
     public Logger logger = Logger.getLogger(SessionDAO.class);
-    private PersistManager persistManager;
+    private PersistenceManager persistManager;
 
     public SessionDAO(){
-        persistManager = new PersistManager();
+        persistManager = new PersistenceManager();
     }
 
     public void createSession(SessionVO sessionVO){

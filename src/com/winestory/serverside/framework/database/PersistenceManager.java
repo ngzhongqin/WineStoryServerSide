@@ -8,14 +8,14 @@ import javax.persistence.Persistence;
 
 /**
  * Created by zhongqinng on 23/7/15.
- * PersistManager
+ * PersistenceManager
  */
-public class PersistManager {
-    public Logger logger = Logger.getLogger(PersistManager.class);
+public class PersistenceManager {
+    public Logger logger = Logger.getLogger(PersistenceManager.class);
     private EntityManagerFactory entityManagerFactory;
     private EntityManager em;
 
-    public PersistManager(){
+    public PersistenceManager(){
         entityManagerFactory = Persistence.createEntityManagerFactory("winestory");
         em = entityManagerFactory.createEntityManager();
     }

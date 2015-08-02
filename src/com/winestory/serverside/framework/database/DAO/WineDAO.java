@@ -1,7 +1,7 @@
 package com.winestory.serverside.framework.database.DAO;
 
 import com.winestory.serverside.framework.database.Entity.WineEntity;
-import com.winestory.serverside.framework.database.PersistManager;
+import com.winestory.serverside.framework.database.PersistenceManager;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -12,10 +12,10 @@ import java.util.List;
  */
 public class WineDAO {
     public Logger logger = Logger.getLogger(WineDAO.class);
-    private PersistManager persistManager;
+    private PersistenceManager persistenceManager;
 
-    public WineDAO(){
-        persistManager = new PersistManager();
+    public WineDAO(PersistenceManager persistenceManager){
+        this.persistenceManager = persistenceManager;
     };
 
 
@@ -23,7 +23,7 @@ public class WineDAO {
         List<WineEntity> wineEntityList = null;
         try {
             wineEntityList =
-                    persistManager.getEm()
+                    persistenceManager.getEm()
                             .createQuery("SELECT w FROM WineEntity w")
                             .getResultList();
         }catch (Exception e){

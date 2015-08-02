@@ -2,7 +2,7 @@ package com.winestory.serverside.framework.database.DAO;
 
 import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.Entity.UserEntity;
-import com.winestory.serverside.framework.database.PersistManager;
+import com.winestory.serverside.framework.database.PersistenceManager;
 import org.apache.log4j.Logger;
 
 import javax.persistence.EntityTransaction;
@@ -14,10 +14,10 @@ import java.util.List;
  */
 public class UserDAO {
     public Logger logger = Logger.getLogger(UserDAO.class);
-    private PersistManager persistManager;
+    private PersistenceManager persistManager;
 
     public UserDAO(){
-        persistManager = new PersistManager();
+        persistManager = new PersistenceManager();
     };
 
     public void close(){

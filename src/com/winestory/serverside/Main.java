@@ -1,5 +1,6 @@
 package com.winestory.serverside;
 
+import com.winestory.serverside.framework.database.PersistenceManager;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelOption;
@@ -27,9 +28,12 @@ public final class Main {
 
     public static void main(String[] args) throws Exception {
         Logger logger = Logger.getLogger(Main.class);
-        PropertyConfigurator.configure("conf/log4j.properties");
 
         logger.info("Started Main.class");
+
+        String logFilePath = "conf/properties/log4j.properties";
+        PropertyConfigurator.configure(logFilePath);
+        PersistenceManager persistenceManager = new PersistenceManager();
 
         // Configure SSL.
         final SslContext sslCtx;
@@ -49,7 +53,7 @@ public final class Main {
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .handler(new LoggingHandler(LogLevel.INFO))
-                    .childHandler(new HttpServerInitializer(sslCtx));
+                    .childHandler(new HttpServerInitializer(sslCtx,persistenceManager));
 
             Channel ch = b.bind(PORT).sync().channel();
 

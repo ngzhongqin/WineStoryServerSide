@@ -1,6 +1,7 @@
 package com.winestory.serverside;
 
 
+import com.winestory.serverside.framework.database.PersistenceManager;
 import com.winestory.serverside.router.RouteInboundHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -15,9 +16,11 @@ import io.netty.util.ReferenceCountUtil;
 public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
 
     private final SslContext sslCtx;
+    private PersistenceManager persistenceManager;
 
-    public HttpServerInitializer(SslContext sslCtx) {
-        this.sslCtx = sslCtx;
+    public HttpServerInitializer(SslContext sslCtx, PersistenceManager persistenceManager) {
+        this.sslCtx=sslCtx;
+        this.persistenceManager=persistenceManager;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class HttpServerInitializer extends ChannelInitializer<SocketChannel> {
 //        p.addLast("decoder", new HttpRequestDecoder());
         p.addLast("aggregator", new HttpObjectAggregator(512 * 1024));
 
-        p.addLast(new RouteInboundHandler());
+        p.addLast(new RouteInboundHandler(persistenceManager));
 
     }
 }
