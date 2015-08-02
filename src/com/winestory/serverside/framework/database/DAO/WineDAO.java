@@ -32,4 +32,20 @@ public class WineDAO {
 
         return wineEntityList;
     }
+
+    public WineEntity getWine(int wine_id) {
+        WineEntity wineEntity = null;
+        try {
+            wineEntity = (WineEntity)
+                    persistenceManager.getEm()
+                            .createQuery("SELECT w FROM WineEntity w where w.id = :wine_id ")
+                            .setParameter("wine_id", wine_id)
+                            .getSingleResult();
+        }catch (Exception e){
+            logger.error("getWine: wine_id:"+wine_id+" ERROR: "+e.getMessage());
+        }
+
+        return wineEntity;
+    }
+
 }

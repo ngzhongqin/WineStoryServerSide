@@ -45,8 +45,18 @@ public class StoreHandler {
             logger.error("com.dashb.router ERROR for action: "+e.getMessage());
         }
 
+        //setting wine_id
+        int wine_id = -1;
+        try {
+            String intString = params.get("wine").get(0);
+            wine_id = Integer.parseInt(intString);
+            logger.info("wine_id: "+wine_id);
+        }catch (Exception e){
+            logger.error("ERROR for intString: "+e.getMessage());
+        }
+
         if(params.isEmpty()){
-            logger.info("com.dashb.router Action = View");
+            logger.info("No Params");
         }else{
 
             if("GetAll".equals(action)){
@@ -55,27 +65,30 @@ public class StoreHandler {
                 return;
             }
 
+            if("ViewWine".equals(action)){
+                logger.info("Action = ViewWine");
+                viewWine(ctx, fullHttpRequest,wine_id);
+                return;
+            }
+
         }
     }
 
+    private void viewWine(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, int wine_id) {
+        logger.info("Method: viewWine wine_id:"+wine_id);
+
+        boolean check = checkIfRequestIsEmpty(fullHttpRequest);
+
+        WineDAO wineDAO = new WineDAO(persistenceManager);
+        WineEntity wineEntity = wineDAO.getWine(wine_id);
+        JSONObject replyJSON = storeJSONHelper.getJSONObject(wineEntity);
+        httpResponder.respond(ctx,fullHttpRequest,replyJSON);
+
+    }
+
     public void getAll(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest) {
-        logger.info("Method: getStore");
-
-        logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
-        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
-
-        try {
-            if(reqString!=null) {
-                if(!reqString.isEmpty()) {
-                    JSONObject incoming = new JSONObject(reqString);
-                }else{
-                    logger.info("INCOMING REQUEST IS EMPTY");
-                }
-            }
-        } catch (JSONException e) {
-            logger.error("incoming reqString that caused error: "+reqString);
-            e.printStackTrace();
-        }
+        logger.info("Method: getAll");
+        boolean check = checkIfRequestIsEmpty(fullHttpRequest);
 
         WineDAO wineDAO = new WineDAO(persistenceManager);
         List<WineEntity> wineEntityList = wineDAO.getAllWines();
@@ -85,4 +98,33 @@ public class StoreHandler {
 
 
     }
+
+    private String getRequestString(FullHttpRequest fullHttpRequest){
+        logger.info("getRequestString content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
+        return reqString;
+    }
+
+    private boolean checkIfRequestIsEmpty(FullHttpRequest fullHttpRequest){
+        logger.info("checkIfRequestIsEmpty");
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
+        boolean returnBool = true;
+        try {
+            if(reqString!=null) {
+                if(!reqString.isEmpty()) {
+                    JSONObject incoming = new JSONObject(reqString);
+                    returnBool = false;
+
+                }else{
+                    logger.info("INCOMING REQUEST IS EMPTY");
+                }
+            }
+        } catch (JSONException e) {
+            logger.error("incoming reqString that caused error: "+reqString);
+            e.printStackTrace();
+        }
+        return returnBool;
+    }
+
+
 }

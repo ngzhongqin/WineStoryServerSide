@@ -97,5 +97,17 @@ public class StoreJSONHelper {
     }
 
 
+    public JSONObject getJSONObject(WineEntity wineEntity) {
+        JSONObject jsonObject = new JSONObject();
 
+        try {
+            jsonObject.put("data", loadTaskEntityIntoJSON(wineEntity));
+
+        } catch (JSONException e) {
+            logger.error("getJSONObject: error:"+e.getMessage());
+            e.printStackTrace();
+        }
+
+        return jsonObject;
+    }
 }
