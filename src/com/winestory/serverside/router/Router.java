@@ -30,7 +30,30 @@ public class Router {
         return this.queryStringDecoder.parameters();
     }
 
+    public int getParamInt(String paraString){
+        Map<String,List<String>> params = getParameters();
+        int returnInt = -1;
+        try {
+            String intString = params.get(paraString).get(0);
+            returnInt = Integer.parseInt(intString);
+            logger.info("returnInt: "+returnInt);
+        }catch (Exception e){
+            logger.error("ERROR for intString: "+e.getMessage());
+        }
+
+        return returnInt;
+    }
 
 
+    public String getAction() {
+        String actionString = null;
+        //setting action
+        try {
+            actionString = getParameters().get("action").get(0);
+        }catch (Exception e){
+            logger.error("getAction ERROR: "+e.getMessage());
+        }
 
+        return actionString;
+    }
 }

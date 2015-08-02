@@ -1,5 +1,6 @@
 package com.winestory.serverside.handler.store;
 
+import com.winestory.serverside.framework.JSONHelper;
 import com.winestory.serverside.framework.database.DAO.WineDAO;
 import com.winestory.serverside.framework.database.Entity.WineEntity;
 import com.winestory.serverside.framework.database.PersistenceManager;
@@ -24,36 +25,23 @@ public class StoreHandler {
     private HTTPResponder httpResponder;
     private StoreJSONHelper storeJSONHelper;
     private PersistenceManager persistenceManager;
+    private JSONHelper jsonHelper;
 
     public StoreHandler(PersistenceManager persistenceManager){
         this.httpResponder = new HTTPResponder();
         this.storeJSONHelper = new StoreJSONHelper();
         this.persistenceManager=persistenceManager;
+        this.jsonHelper=new JSONHelper();
     }
 
 
     public void router(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest){
-        String action = null;
 
         Router router = new Router(fullHttpRequest.getUri());
+        String action = router.getAction();
+        int wine_id = router.getParamInt("wine");
         Map<String,List<String>> params = router.getParameters();
 
-        //setting action
-        try {
-            action = params.get("action").get(0);
-        }catch (Exception e){
-            logger.error("com.dashb.router ERROR for action: "+e.getMessage());
-        }
-
-        //setting wine_id
-        int wine_id = -1;
-        try {
-            String intString = params.get("wine").get(0);
-            wine_id = Integer.parseInt(intString);
-            logger.info("wine_id: "+wine_id);
-        }catch (Exception e){
-            logger.error("ERROR for intString: "+e.getMessage());
-        }
 
         if(params.isEmpty()){
             logger.info("No Params");
@@ -77,7 +65,7 @@ public class StoreHandler {
     private void viewWine(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, int wine_id) {
         logger.info("Method: viewWine wine_id:"+wine_id);
 
-        boolean check = checkIfRequestIsEmpty(fullHttpRequest);
+        boolean check = jsonHelper.checkIfRequestIsEmpty(fullHttpRequest);
 
         WineDAO wineDAO = new WineDAO(persistenceManager);
         WineEntity wineEntity = wineDAO.getWine(wine_id);
@@ -88,7 +76,7 @@ public class StoreHandler {
 
     public void getAll(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest) {
         logger.info("Method: getAll");
-        boolean check = checkIfRequestIsEmpty(fullHttpRequest);
+        boolean check = jsonHelper.checkIfRequestIsEmpty(fullHttpRequest);
 
         WineDAO wineDAO = new WineDAO(persistenceManager);
         List<WineEntity> wineEntityList = wineDAO.getAllWines();
@@ -96,35 +84,6 @@ public class StoreHandler {
 
         httpResponder.respond(ctx,fullHttpRequest,replyJSON);
 
-
     }
-
-    private String getRequestString(FullHttpRequest fullHttpRequest){
-        logger.info("getRequestString content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
-        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
-        return reqString;
-    }
-
-    private boolean checkIfRequestIsEmpty(FullHttpRequest fullHttpRequest){
-        logger.info("checkIfRequestIsEmpty");
-        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
-        boolean returnBool = true;
-        try {
-            if(reqString!=null) {
-                if(!reqString.isEmpty()) {
-                    JSONObject incoming = new JSONObject(reqString);
-                    returnBool = false;
-
-                }else{
-                    logger.info("INCOMING REQUEST IS EMPTY");
-                }
-            }
-        } catch (JSONException e) {
-            logger.error("incoming reqString that caused error: "+reqString);
-            e.printStackTrace();
-        }
-        return returnBool;
-    }
-
 
 }
