@@ -6,8 +6,10 @@ import com.winestory.serverside.framework.VO.SessionVO;
 import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.DAO.SessionDAO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
+import com.winestory.serverside.framework.database.PersistenceManager;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.framework.security.PasswordHash;
+import com.winestory.serverside.router.Router;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.util.CharsetUtil;
@@ -17,16 +19,40 @@ import org.json.JSONObject;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
+import java.util.Map;
 
 
 public class LoginHandler {
     public Logger logger = Logger.getLogger(LoginHandler.class);
     private HTTPResponder httpResponder;
     private LoginJSONHelper loginJSONHelper;
+    private PersistenceManager persistenceManager;
 
-    public LoginHandler(){
+    public LoginHandler(PersistenceManager persistenceManager){
         this.httpResponder = new HTTPResponder();
         this.loginJSONHelper = new LoginJSONHelper();
+        this.persistenceManager=persistenceManager;
+    }
+
+    public void router(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest){
+
+        Router router = new Router(fullHttpRequest.getUri());
+        String action = router.getAction();
+        Map<String,List<String>> params = router.getParameters();
+
+
+        if(params.isEmpty()){
+            logger.info("No Params");
+        }else{
+
+            if("Login".equals(action)){
+                logger.info("Action = Login");
+                login(ctx, fullHttpRequest);
+                return;
+            }
+
+        }
     }
 
     public void login(ChannelHandlerContext ctx, FullHttpRequest req){
