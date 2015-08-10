@@ -1,6 +1,7 @@
 package com.winestory.serverside.router;
 
 import com.winestory.serverside.exception.ExceptionHandler;
+import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.PersistenceManager;
 import com.winestory.serverside.utils.ConfigUtil;
 import com.winestory.serverside.vo.ServiceVO;
@@ -46,10 +47,17 @@ public class RouteInboundHandler implements ChannelInboundHandler {
             logger.info("serviceVo: "+serviceVO.getServiceID());
             logger.info("serviceVo: "+serviceVO.getServiceClass());
 
-            Router router = new Router(fullHttpRequest.getUri());
+            Router router = new Router(fullHttpRequest.getUri(), persistenceManager);
             logger.info("URI: "+router.getUri());
             logger.info("PATH: "+router.getPath());
             logger.info("PARAMS: "+router.getParameters());
+            UserVO userVO = router.getUser();
+            if(userVO!=null) {
+                logger.info("User: " + router.getUser().getFull_name());
+            }
+            else{
+                logger.info("User: " + router.getUser());
+            }
 
             if(null != serviceVO){
                 Class c = Class.forName(serviceVO.getServiceClass());

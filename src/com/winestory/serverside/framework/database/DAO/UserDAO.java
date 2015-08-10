@@ -14,24 +14,21 @@ import java.util.List;
  */
 public class UserDAO {
     public Logger logger = Logger.getLogger(UserDAO.class);
-    private PersistenceManager persistManager;
+    private PersistenceManager persistenceManager;
 
-    public UserDAO(){
-        persistManager = new PersistenceManager();
+    public UserDAO(PersistenceManager persistenceManager){
+
+        this.persistenceManager = persistenceManager;
     };
 
-    public void close(){
-        persistManager.close();
-    }
-
     public void createNewUser(UserVO userVO){
-        EntityTransaction tx = persistManager.getEm().getTransaction();
+        EntityTransaction tx = persistenceManager.getEm().getTransaction();
         UserEntity userEntity = new UserEntity();
         userEntity.setEmail(userVO.getEmail());
         userEntity.setFull_name(userVO.getFull_name());
         userEntity.setPassword_salt_hash(userVO.getPassword_salt_hash());
         tx.begin();
-        persistManager.getEm().persist(userEntity);
+        persistenceManager.getEm().persist(userEntity);
         tx.commit();
 
     }
@@ -40,7 +37,7 @@ public class UserDAO {
         boolean returnBoolean = false;
 
         List<UserEntity> userEntityArrayList =
-                persistManager.getEm().createQuery("select u from UserEntity u where u.email = :email")
+                persistenceManager.getEm().createQuery("select u from UserEntity u where u.email = :email")
                 .setParameter("email", email)
                 .getResultList();
 
@@ -56,7 +53,7 @@ public class UserDAO {
         UserVO userVO = null;
         try {
             UserEntity userEntity =
-                    (UserEntity) persistManager.getEm()
+                    (UserEntity) persistenceManager.getEm()
                             .createQuery("SELECT u FROM UserEntity u where u.email= :email")
                             .setParameter("email", email)
                             .getSingleResult();
@@ -73,5 +70,26 @@ public class UserDAO {
         return userVO;
     }
 
+    public UserVO getUserFromSessionId(String sessionId){
+        UserVO userVO = null;
+        try {
+            UserEntity userEntity =
+                    (UserEntity) persistenceManager.getEm()
+                            .createQuery("SELECT u FROM UserEntity u, SessionEntity s where s.id = :sessionId " +
+                                    "and s.user_id = u.id")
+                            .setParameter("sessionId", sessionId)
+                            .getSingleResult();
+            if(userEntity!=null){
+                userVO = new UserVO(userEntity.getId(),
+                        userEntity.getFull_name(),
+                        userEntity.getEmail(),
+                        userEntity.getPassword_salt_hash());
+            }
+        }catch (Exception e){
+            logger.error("getUser: ERROR: "+e.getMessage());
+        }
+
+        return userVO;
+    }
 
 }

@@ -26,7 +26,7 @@ public class ExceptionHandler {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        httpResponder.respond(ctx,fullHttpRequest,jsonObjectmain);
+        httpResponder.respond(ctx,fullHttpRequest,jsonObjectmain,null);
 	}
 
 }

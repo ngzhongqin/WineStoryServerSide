@@ -37,7 +37,7 @@ public class LoginHandler {
 
     public void router(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest){
 
-        Router router = new Router(fullHttpRequest.getUri());
+        Router router = new Router(fullHttpRequest.getUri(),persistenceManager);
         String action = router.getAction();
         Map<String,List<String>> params = router.getParameters();
 
@@ -52,10 +52,21 @@ public class LoginHandler {
                 return;
             }
 
+            if("Check".equals(action)){
+                logger.info("Action = Check");
+                checkSession(ctx, fullHttpRequest);
+                return;
+            }
+
         }
     }
 
-    public void login(ChannelHandlerContext ctx, FullHttpRequest req){
+    private void checkSession(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest) {
+
+
+    }
+
+    private void login(ChannelHandlerContext ctx, FullHttpRequest req){
         logger.info("Method: login");
         logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
 
@@ -72,7 +83,7 @@ public class LoginHandler {
                     String email = jsonHelper.getString(data, "email");
                     String password = jsonHelper.getString(data,"password");
 
-                    UserDAO userDAO = new UserDAO();
+                    UserDAO userDAO = new UserDAO(persistenceManager);
                     UserVO userVO = userDAO.getUser(email);
 
                     //check if there is such user
@@ -94,17 +105,17 @@ public class LoginHandler {
                             UUIDGenerator uuidGenerator = new UUIDGenerator();
                             String new_session_id = uuidGenerator.getUUID();
                             logger.info("login: new_session_id:" + new_session_id);
-                            SessionDAO sessionDAO = new SessionDAO();
+                            SessionDAO sessionDAO = new SessionDAO(persistenceManager);
                             SessionVO sessionVO = new SessionVO(new_session_id,userVO.getId());
                             sessionDAO.createSession(sessionVO);
 
-                            httpResponder.respond(ctx,req,loginJSONHelper.getJSONLoginSuccess(sessionVO));
+                            httpResponder.respond(ctx,req,loginJSONHelper.getJSONLoginSuccess(sessionVO),userVO);
                             return;
                         }
 
                     }
 
-                    httpResponder.respond(ctx,req,loginJSONHelper.getJSONLoginFailed());
+                    httpResponder.respond(ctx,req,loginJSONHelper.getJSONLoginFailed(),userVO);
 
                 }else{
                     logger.info("INCOMING REQUEST IS EMPTY!");

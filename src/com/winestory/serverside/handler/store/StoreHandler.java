@@ -1,6 +1,7 @@
 package com.winestory.serverside.handler.store;
 
 import com.winestory.serverside.framework.JSONHelper;
+import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.DAO.WineDAO;
 import com.winestory.serverside.framework.database.Entity.WineEntity;
 import com.winestory.serverside.framework.database.PersistenceManager;
@@ -37,8 +38,14 @@ public class StoreHandler {
 
     public void router(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest){
 
-        Router router = new Router(fullHttpRequest.getUri());
+        Router router = new Router(fullHttpRequest.getUri(),persistenceManager);
         String action = router.getAction();
+        UserVO userVO = router.getUser();
+
+        if(userVO!=null){
+            logger.info("router: action:"+action+" userVO:"+userVO.getFull_name());
+        }
+
         int wine_id = router.getParamInt("wine");
         Map<String,List<String>> params = router.getParameters();
 
@@ -49,20 +56,20 @@ public class StoreHandler {
 
             if("GetAll".equals(action)){
                 logger.info("Action = GetAll");
-                getAll(ctx, fullHttpRequest);
+                getAll(ctx, fullHttpRequest,userVO);
                 return;
             }
 
             if("ViewWine".equals(action)){
                 logger.info("Action = ViewWine");
-                viewWine(ctx, fullHttpRequest,wine_id);
+                viewWine(ctx, fullHttpRequest,wine_id,userVO);
                 return;
             }
 
         }
     }
 
-    private void viewWine(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, int wine_id) {
+    private void viewWine(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, int wine_id, UserVO userVO) {
         logger.info("Method: viewWine wine_id:"+wine_id);
 
         boolean check = jsonHelper.checkIfRequestIsEmpty(fullHttpRequest);
@@ -70,11 +77,11 @@ public class StoreHandler {
         WineDAO wineDAO = new WineDAO(persistenceManager);
         WineEntity wineEntity = wineDAO.getWine(wine_id);
         JSONObject replyJSON = storeJSONHelper.getJSONObject(wineEntity);
-        httpResponder.respond(ctx,fullHttpRequest,replyJSON);
+        httpResponder.respond(ctx,fullHttpRequest,replyJSON,userVO);
 
     }
 
-    public void getAll(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest) {
+    public void getAll(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, UserVO userVO) {
         logger.info("Method: getAll");
         boolean check = jsonHelper.checkIfRequestIsEmpty(fullHttpRequest);
 
@@ -82,7 +89,7 @@ public class StoreHandler {
         List<WineEntity> wineEntityList = wineDAO.getAllWines();
         JSONObject replyJSON = storeJSONHelper.getJSONObject(wineEntityList);
 
-        httpResponder.respond(ctx,fullHttpRequest,replyJSON);
+        httpResponder.respond(ctx,fullHttpRequest,replyJSON, userVO);
 
     }
 

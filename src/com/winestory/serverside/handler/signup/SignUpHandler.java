@@ -2,6 +2,7 @@ package com.winestory.serverside.handler.signup;
 
 import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
+import com.winestory.serverside.framework.database.PersistenceManager;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.framework.security.PasswordHash;
 import io.netty.channel.ChannelHandlerContext;
@@ -18,9 +19,11 @@ import java.security.spec.InvalidKeySpecException;
 public class SignUpHandler {
     public Logger logger = Logger.getLogger(SignUpHandler.class);
     private HTTPResponder httpResponder;
+    private PersistenceManager persistenceManager;
 
-    public SignUpHandler(){
+    public SignUpHandler(PersistenceManager persistenceManager){
         this.httpResponder = new HTTPResponder();
+        this.persistenceManager=persistenceManager;
     }
 
     public void signUp(ChannelHandlerContext ctx, FullHttpRequest req){
@@ -28,6 +31,7 @@ public class SignUpHandler {
         logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
 
         String reqString = req.content().toString(CharsetUtil.UTF_8);
+        UserVO userVO = null;
 
         try {
             if(reqString!=null) {
@@ -40,7 +44,7 @@ public class SignUpHandler {
                     String full_name = (String) data.get("full_name");
 
 
-                    UserDAO userDAO = new UserDAO();
+                    UserDAO userDAO = new UserDAO(persistenceManager);
                     boolean checkIfEmailIsTaken = userDAO.checkIfEmailIsTaken(email);
                     if(!checkIfEmailIsTaken){
                         String password_salt_hash;
@@ -49,9 +53,8 @@ public class SignUpHandler {
                         try {
 
                             password_salt_hash=passwordHash.createHash(password);
-                            UserVO userVO = new UserVO(full_name,email,password_salt_hash);
+                            userVO = new UserVO(full_name,email,password_salt_hash);
                             userDAO.createNewUser(userVO);
-                            userDAO.close();
                         } catch (NoSuchAlgorithmException e) {
                             e.printStackTrace();
                         } catch (InvalidKeySpecException e) {
@@ -59,7 +62,7 @@ public class SignUpHandler {
                         }
                     }
 
-                    respond(ctx, req);
+                    respond(ctx, req, userVO);
 
 
                 }else{
@@ -72,19 +75,17 @@ public class SignUpHandler {
         }
     }
 
-    private void respond(ChannelHandlerContext ctx, FullHttpRequest req){
+    private void respond(ChannelHandlerContext ctx, FullHttpRequest req, UserVO userVO){
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("email","123456@sf.com");
-            jsonObject.put("full_name","Zhong Qin");
-            jsonObject.put("password", "password_input");
+            jsonObject.put("data","dummy");
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
-        httpResponder.respond(ctx,req,jsonObject);
+        httpResponder.respond(ctx,req,jsonObject,userVO);
 
     }
 

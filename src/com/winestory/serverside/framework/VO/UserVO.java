@@ -10,6 +10,10 @@ public class UserVO {
     private String email;
     private String password_salt_hash;
 
+    public UserVO(){
+
+    }
+
     public UserVO(Long id,
                 String full_name,
                   String email,
