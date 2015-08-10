@@ -40,7 +40,7 @@ public class LoginHandler {
         Router router = new Router(fullHttpRequest.getUri(),persistenceManager);
         String action = router.getAction();
         Map<String,List<String>> params = router.getParameters();
-
+        String session_id = router.getSession();
 
         if(params.isEmpty()){
             logger.info("No Params");
@@ -58,11 +58,16 @@ public class LoginHandler {
                 return;
             }
 
+            if("Logout".equals(action)){
+                logger.info("Action = Logout");
+                logout(ctx, fullHttpRequest,session_id);
+                return;
+            }
+
         }
     }
 
     private void checkSession(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest) {
-
 
     }
 
@@ -85,7 +90,10 @@ public class LoginHandler {
 
                     UserDAO userDAO = new UserDAO(persistenceManager);
                     UserVO userVO = userDAO.getUser(email);
-
+                    logger.info("login: userVO:"+userVO);
+                    if(userVO!=null){
+                        logger.info("login: userVO: "+userVO.getFull_name());
+                    }
                     //check if there is such user
                     if(userVO!=null){
                         boolean isPasswordCorrect = false;
@@ -125,6 +133,19 @@ public class LoginHandler {
             logger.error("incoming reqString that caused error: "+reqString);
             e.printStackTrace();
         }
+    }
+
+
+    private void logout(ChannelHandlerContext ctx, FullHttpRequest req, String session_id){
+        logger.info("Method: logout");
+        logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
+
+        String reqString = req.content().toString(CharsetUtil.UTF_8);
+        SessionDAO sessionDAO = new SessionDAO(persistenceManager);
+        sessionDAO.destroySession(session_id);
+
+        httpResponder.respond(ctx,req,loginJSONHelper.getJSONLogout(),null);
+
     }
 
 }

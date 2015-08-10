@@ -20,6 +20,10 @@ public class SessionEntity {
     @Column(name = "id")
     private String id;
 
+    public String getId(){
+        return this.id;
+    }
+
 
     public void setId(String id) {
         this.id = id;

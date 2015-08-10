@@ -33,21 +33,38 @@ public class SessionDAO {
         tx.commit();
     }
 
-    public long getUserId(String session_id){
-        long returnUserId = -1;
+    public SessionVO getSession(String session_id){
+        SessionVO sessionVO = null;
         try {
             SessionEntity sessionEntity = (SessionEntity)
                     persistenceManager.getEm()
                             .createQuery("SELECT s FROM SessionEntity s where s.id = :session_id ")
                             .setParameter("session_id", session_id)
                             .getSingleResult();
-            if(session_id!=null){
-                returnUserId = sessionEntity.getUser_id();
+            if(sessionEntity!=null){
+                sessionVO = new SessionVO(sessionEntity.getId(),sessionEntity.getUser_id());
             }
         }catch (Exception e){
             logger.error("getUserId: session_id:"+session_id+" ERROR: "+e.getMessage());
         }
 
-        return returnUserId;
+        return sessionVO;
+    }
+
+    public void destroySession(String session_id){
+        try {
+            SessionEntity sessionEntity = (SessionEntity)
+                    persistenceManager.getEm()
+                            .createQuery("SELECT s FROM SessionEntity s where s.id = :session_id ")
+                            .setParameter("session_id", session_id)
+                            .getSingleResult();
+            if(sessionEntity!=null){
+                persistenceManager.getEm().remove(sessionEntity);
+                logger.info("destroySession: session_id:"+session_id+" destroyed.");
+            }
+        }catch (Exception e){
+            logger.error("destroySession: session_id:"+session_id+" ERROR: "+e.getMessage());
+        }
+
     }
 }

@@ -21,7 +21,7 @@ public class UserDAO {
         this.persistenceManager = persistenceManager;
     };
 
-    public void createNewUser(UserVO userVO){
+    public UserVO createNewUser(UserVO userVO){
         EntityTransaction tx = persistenceManager.getEm().getTransaction();
         UserEntity userEntity = new UserEntity();
         userEntity.setEmail(userVO.getEmail());
@@ -30,7 +30,9 @@ public class UserDAO {
         tx.begin();
         persistenceManager.getEm().persist(userEntity);
         tx.commit();
-
+        logger.info("createNewUser ID:"+userEntity.getId());
+        userVO.setId(userEntity.getId());
+        return userVO;
     }
 
     public boolean checkIfEmailIsTaken(String email){

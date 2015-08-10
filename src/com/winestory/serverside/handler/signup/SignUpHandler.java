@@ -1,10 +1,14 @@
 package com.winestory.serverside.handler.signup;
 
+import com.winestory.serverside.framework.UUIDGenerator;
+import com.winestory.serverside.framework.VO.SessionVO;
 import com.winestory.serverside.framework.VO.UserVO;
+import com.winestory.serverside.framework.database.DAO.SessionDAO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.framework.security.PasswordHash;
+import com.winestory.serverside.router.Router;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.util.CharsetUtil;
@@ -14,6 +18,8 @@ import org.json.JSONObject;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
+import java.util.Map;
 
 
 public class SignUpHandler {
@@ -26,12 +32,35 @@ public class SignUpHandler {
         this.persistenceManager=persistenceManager;
     }
 
+    public void router(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest){
+
+        Router router = new Router(fullHttpRequest.getUri(),persistenceManager);
+        String action = router.getAction();
+        Map<String,List<String>> params = router.getParameters();
+
+
+        if(params.isEmpty()){
+            logger.info("No Params");
+        }else{
+
+            if("SignUp".equals(action)){
+                logger.info("Action = SignUp");
+                signUp(ctx, fullHttpRequest);
+                return;
+            }
+
+        }
+    }
+
     public void signUp(ChannelHandlerContext ctx, FullHttpRequest req){
         logger.info("Method: signUp");
         logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
 
         String reqString = req.content().toString(CharsetUtil.UTF_8);
         UserVO userVO = null;
+        String code = "SGU-101";
+        String message = "Sign Up was unsuccessful.";
+        String winestory_session = null;
 
         try {
             if(reqString!=null) {
@@ -54,7 +83,19 @@ public class SignUpHandler {
 
                             password_salt_hash=passwordHash.createHash(password);
                             userVO = new UserVO(full_name,email,password_salt_hash);
-                            userDAO.createNewUser(userVO);
+                            userVO = userDAO.createNewUser(userVO);
+
+                            UUIDGenerator uuidGenerator = new UUIDGenerator();
+                            String new_session_id = uuidGenerator.getUUID();
+                            logger.info("signup: new_session_id:" + new_session_id);
+                            SessionDAO sessionDAO = new SessionDAO(persistenceManager);
+                            SessionVO sessionVO = new SessionVO(new_session_id,userVO.getId());
+                            sessionDAO.createSession(sessionVO);
+
+                            code = "SGU-100";
+                            message = "Sign Up successful.";
+                            winestory_session = sessionVO.getId();
+
                         } catch (NoSuchAlgorithmException e) {
                             e.printStackTrace();
                         } catch (InvalidKeySpecException e) {
@@ -62,7 +103,7 @@ public class SignUpHandler {
                         }
                     }
 
-                    respond(ctx, req, userVO);
+                    respond(ctx, req, code, message, winestory_session,userVO);
 
 
                 }else{
@@ -75,17 +116,22 @@ public class SignUpHandler {
         }
     }
 
-    private void respond(ChannelHandlerContext ctx, FullHttpRequest req, UserVO userVO){
+    private void respond(ChannelHandlerContext ctx, FullHttpRequest req, String code, String message, String winestory_session, UserVO userVO){
         JSONObject jsonObject = new JSONObject();
-
+        JSONObject mainJsonObject = new JSONObject();
         try {
-            jsonObject.put("data","dummy");
+            jsonObject.put("code",code);
+            jsonObject.put("message", message);
+            if(winestory_session!=null){
+                jsonObject.put("winestory_session",winestory_session);
+            }
+            mainJsonObject.put("data",jsonObject);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
-        httpResponder.respond(ctx,req,jsonObject,userVO);
+        httpResponder.respond(ctx,req,mainJsonObject,userVO);
 
     }
 

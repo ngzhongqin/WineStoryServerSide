@@ -63,7 +63,7 @@ public class Router {
         return actionString;
     }
 
-    private String getSession() {
+    public String getSession() {
         String sessionString = null;
         //setting action
         try {
@@ -79,6 +79,5 @@ public class Router {
         String session_id = getSession();
         UserDAO userDAO = new UserDAO(persistenceManager);
         return userDAO.getUserFromSessionId(session_id);
-
     }
 }
