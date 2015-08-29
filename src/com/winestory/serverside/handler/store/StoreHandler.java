@@ -56,7 +56,7 @@ public class StoreHandler {
 
             if("GetAll".equals(action)){
                 logger.info("Action = GetAll");
-                getAll(ctx, fullHttpRequest,userVO);
+                getAll(ctx, fullHttpRequest);
                 return;
             }
 
@@ -81,7 +81,7 @@ public class StoreHandler {
 
     }
 
-    public void getAll(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, UserVO userVO) {
+    public void getAll(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest) {
         logger.info("Method: getAll");
         boolean check = jsonHelper.checkIfRequestIsEmpty(fullHttpRequest);
 
@@ -89,8 +89,10 @@ public class StoreHandler {
         List<WineEntity> wineEntityList = wineDAO.getAllWines();
         JSONObject replyJSON = storeJSONHelper.getJSONObject(wineEntityList);
 
-        httpResponder.respond(ctx,fullHttpRequest,replyJSON, userVO);
+        httpResponder.respond2(channelHandlerContext,fullHttpRequest,
+                replyJSON,null,null);
 
+//        httpResponder.respond(ctx,fullHttpRequest,replyJSON, userVO);
     }
 
 }

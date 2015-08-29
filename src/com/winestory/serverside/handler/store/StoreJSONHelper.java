@@ -63,7 +63,7 @@ public class StoreJSONHelper {
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("data", jsonArray);
+            jsonObject.put("wines", jsonArray);
 
         } catch (JSONException e) {
             logger.error("getJSONObject: error:"+e.getMessage());
