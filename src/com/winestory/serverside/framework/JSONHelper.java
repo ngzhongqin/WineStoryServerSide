@@ -3,6 +3,7 @@ package com.winestory.serverside.framework;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.util.CharsetUtil;
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -71,5 +72,30 @@ public class JSONHelper {
         logger.info("getRequestString content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
         String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
         return reqString;
+    }
+
+    public JSONArray getJSONArray(JSONObject incoming, String key) {
+        JSONArray returnJSONArray = null;
+
+        try {
+            returnJSONArray = (JSONArray) incoming.get(key);
+        } catch (JSONException e) {
+            logger.error("getJSONArray: Exception: " + e.getMessage());
+        }
+
+        return returnJSONArray;
+
+    }
+
+    public int getInt(JSONObject jsonObject, String key) {
+        int returnInt = -1;
+        try{
+            returnInt  = jsonObject.getInt(key);
+        }catch (Exception e) {
+            logger.error("getInt: Exception: " + e.getMessage());
+        }
+
+        return returnInt;
+
     }
 }
