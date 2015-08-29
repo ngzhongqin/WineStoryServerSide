@@ -42,17 +42,17 @@ public class LoginJSONHelper {
 //        return returnJsonObject;
 //    }
 
-    public JSONObject getJSONLogout() {
-        JSONObject jsonObject = new JSONObject();
-        JSONObject returnJsonObject = new JSONObject();
-        try {
-            jsonObject.put("code","SEC-103");
-            jsonObject.put("message","Logout Successful.");
-            returnJsonObject.put("data",jsonObject);
-        } catch (JSONException e) {
-            logger.error("getJSONLogout ERROR:" + e.getMessage());
-        }
-
-        return returnJsonObject;
-    }
+//    public JSONObject getJSONLogout() {
+//        JSONObject jsonObject = new JSONObject();
+//        JSONObject returnJsonObject = new JSONObject();
+//        try {
+//            jsonObject.put("code","SEC-103");
+//            jsonObject.put("message","Logout Successful.");
+//            returnJsonObject.put("data",jsonObject);
+//        } catch (JSONException e) {
+//            logger.error("getJSONLogout ERROR:" + e.getMessage());
+//        }
+//
+//        return returnJsonObject;
+//    }
 }

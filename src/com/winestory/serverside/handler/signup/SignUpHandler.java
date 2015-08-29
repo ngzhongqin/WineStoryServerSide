@@ -6,6 +6,7 @@ import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.DAO.SessionDAO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.framework.helper.ReturnStatusHelper;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.framework.security.PasswordHash;
 import com.winestory.serverside.router.Router;
@@ -52,15 +53,12 @@ public class SignUpHandler {
         }
     }
 
-    public void signUp(ChannelHandlerContext ctx, FullHttpRequest req){
+    public void signUp(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest){
         logger.info("Method: signUp");
-        logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
+        logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
 
-        String reqString = req.content().toString(CharsetUtil.UTF_8);
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
         UserVO userVO = null;
-        String code = "SGU-101";
-        String message = "Sign Up was unsuccessful.";
-        String winestory_session = null;
 
         try {
             if(reqString!=null) {
@@ -92,19 +90,20 @@ public class SignUpHandler {
                             SessionVO sessionVO = new SessionVO(new_session_id,userVO.getId());
                             sessionDAO.createSession(sessionVO);
 
-                            code = "SGU-100";
-                            message = "Sign Up successful.";
-                            winestory_session = sessionVO.getId();
 
+                            httpResponder.respond2(channelHandlerContext,
+                                    fullHttpRequest,
+                                    new SignUpJSONHelper().getSession(sessionVO),
+                                    new ReturnStatusHelper().getSEC103_SignUpSuccess(),
+                                    userVO);
+
+                            return;
                         } catch (NoSuchAlgorithmException e) {
                             e.printStackTrace();
                         } catch (InvalidKeySpecException e) {
                             e.printStackTrace();
                         }
                     }
-
-                    respond(ctx, req, code, message, winestory_session,userVO);
-
 
                 }else{
                     logger.info("INCOMING REQUEST IS EMPTY!");
@@ -114,25 +113,12 @@ public class SignUpHandler {
             logger.error("incoming reqString that caused error: "+reqString);
             e.printStackTrace();
         }
-    }
 
-    private void respond(ChannelHandlerContext ctx, FullHttpRequest req, String code, String message, String winestory_session, UserVO userVO){
-        JSONObject jsonObject = new JSONObject();
-        JSONObject mainJsonObject = new JSONObject();
-        try {
-            jsonObject.put("code",code);
-            jsonObject.put("message", message);
-            if(winestory_session!=null){
-                jsonObject.put("winestory_session",winestory_session);
-            }
-            mainJsonObject.put("data",jsonObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        httpResponder.respond(ctx,req,mainJsonObject,userVO);
-
+            httpResponder.respond2(channelHandlerContext,
+                    fullHttpRequest,
+                    null,
+                    new ReturnStatusHelper().getSEC104_SignUpFail(),
+                    null);
     }
 
 }

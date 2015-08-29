@@ -32,4 +32,21 @@ public class ReturnStatusHelper {
 
         return new StatusVO(code,message,colour);
     }
+
+    public StatusVO getSEC103_SignUpSuccess(){
+        String code = "SEC-103";
+        String message = "Hey! Thanks for signing up";
+        String colour = "G";
+
+        return new StatusVO(code,message,colour);
+    }
+
+
+    public StatusVO getSEC104_SignUpFail(){
+        String code = "SEC-104";
+        String message = "We failed to sign you up. Maybe your email is already taken?";
+        String colour = "R";
+
+        return new StatusVO(code,message,colour);
+    }
 }
