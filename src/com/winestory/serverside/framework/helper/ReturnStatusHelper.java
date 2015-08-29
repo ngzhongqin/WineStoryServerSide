@@ -7,7 +7,7 @@ import com.winestory.serverside.framework.VO.StatusVO;
  * ReturnStatusHelper
  */
 public class ReturnStatusHelper {
-    public ReturnStatusHelper(){};
+    public ReturnStatusHelper(){}
 
     public StatusVO getSEC100_LoginSuccess(){
         String code = "SEC-100";
