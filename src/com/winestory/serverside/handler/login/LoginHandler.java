@@ -7,6 +7,7 @@ import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.DAO.SessionDAO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.framework.helper.ReturnStatusHelper;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.framework.security.PasswordHash;
 import com.winestory.serverside.router.Router;
@@ -52,12 +53,6 @@ public class LoginHandler {
                 return;
             }
 
-            if("Check".equals(action)){
-                logger.info("Action = Check");
-                checkSession(ctx, fullHttpRequest);
-                return;
-            }
-
             if("Logout".equals(action)){
                 logger.info("Action = Logout");
                 logout(ctx, fullHttpRequest,session_id);
@@ -67,15 +62,11 @@ public class LoginHandler {
         }
     }
 
-    private void checkSession(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest) {
-
-    }
-
-    private void login(ChannelHandlerContext ctx, FullHttpRequest req){
+    private void login(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest){
         logger.info("Method: login");
-        logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
+        logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
 
-        String reqString = req.content().toString(CharsetUtil.UTF_8);
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
 
         try {
             if(reqString!=null) {
@@ -117,13 +108,24 @@ public class LoginHandler {
                             SessionVO sessionVO = new SessionVO(new_session_id,userVO.getId());
                             sessionDAO.createSession(sessionVO);
 
-                            httpResponder.respond(ctx,req,loginJSONHelper.getJSONLoginSuccess(sessionVO),userVO);
+
+                            httpResponder.respond2(channelHandlerContext, fullHttpRequest,
+                                    loginJSONHelper.getJSONLoginSuccess(sessionVO),
+                                    new ReturnStatusHelper().getSEC100_LoginSuccess(),
+                                    null
+                            );
+
+                            //httpResponder.respond(ctx,req,loginJSONHelper.getJSONLoginSuccess(sessionVO),userVO);
                             return;
                         }
 
                     }
+                    httpResponder.respond2(channelHandlerContext, fullHttpRequest,
+                            null,
+                            new ReturnStatusHelper().getSEC101_LoginFail(),
+                            null);
 
-                    httpResponder.respond(ctx,req,loginJSONHelper.getJSONLoginFailed(),userVO);
+//                    httpResponder.respond(channelHandlerContext,fullHttpRequest,loginJSONHelper.getJSONLoginFailed(),userVO);
 
                 }else{
                     logger.info("INCOMING REQUEST IS EMPTY!");
@@ -136,15 +138,19 @@ public class LoginHandler {
     }
 
 
-    private void logout(ChannelHandlerContext ctx, FullHttpRequest req, String session_id){
+    private void logout(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest, String session_id){
         logger.info("Method: logout");
-        logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
+        logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
 
-        String reqString = req.content().toString(CharsetUtil.UTF_8);
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
         SessionDAO sessionDAO = new SessionDAO(persistenceManager);
         sessionDAO.destroySession(session_id);
 
-        httpResponder.respond(ctx,req,loginJSONHelper.getJSONLogout(),null);
+        httpResponder.respond2(channelHandlerContext,fullHttpRequest,
+                null,
+                new  ReturnStatusHelper().getSEC102_LogoutSuccess(),
+                null);
+//        httpResponder.respond(ctx,req,loginJSONHelper.getJSONLogout(),null);
 
     }
 

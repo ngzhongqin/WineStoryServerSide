@@ -19,32 +19,28 @@ public class LoginJSONHelper {
 
     public JSONObject getJSONLoginSuccess(SessionVO sessionVO){
         JSONObject jsonObject = new JSONObject();
-        JSONObject returnJsonObject = new JSONObject();
         try {
-            jsonObject.put("code","SEC-100");
-            jsonObject.put("message","Login Successful");
-            jsonObject.put("winestory_session",sessionVO.getId());
-            returnJsonObject.put("data",jsonObject);
+            jsonObject.put("session_id",sessionVO.getId());
         } catch (JSONException e) {
             logger.error("getJSONLoginSuccess ERROR:" + e.getMessage());
         }
 
-        return returnJsonObject;
+        return jsonObject;
     }
 
-    public JSONObject getJSONLoginFailed(){
-        JSONObject jsonObject = new JSONObject();
-        JSONObject returnJsonObject = new JSONObject();
-        try {
-            jsonObject.put("code","SEC-101");
-            jsonObject.put("message","Login Failed - Incorrect Email or Password");
-            returnJsonObject.put("data",jsonObject);
-        } catch (JSONException e) {
-            logger.error("getJSONLoginFailed ERROR:" + e.getMessage());
-        }
-
-        return returnJsonObject;
-    }
+//    public JSONObject getJSONLoginFailed(){
+//        JSONObject jsonObject = new JSONObject();
+//        JSONObject returnJsonObject = new JSONObject();
+//        try {
+//            jsonObject.put("code","SEC-101");
+//            jsonObject.put("message","Login Failed - Incorrect Email or Password");
+//            returnJsonObject.put("data",jsonObject);
+//        } catch (JSONException e) {
+//            logger.error("getJSONLoginFailed ERROR:" + e.getMessage());
+//        }
+//
+//        return returnJsonObject;
+//    }
 
     public JSONObject getJSONLogout() {
         JSONObject jsonObject = new JSONObject();
