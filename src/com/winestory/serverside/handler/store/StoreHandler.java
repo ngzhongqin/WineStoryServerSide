@@ -62,22 +62,26 @@ public class StoreHandler {
 
             if("ViewWine".equals(action)){
                 logger.info("Action = ViewWine");
-                viewWine(ctx, fullHttpRequest,wine_id,userVO);
+                viewWine(ctx, fullHttpRequest,wine_id);
                 return;
             }
 
         }
     }
 
-    private void viewWine(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, int wine_id, UserVO userVO) {
+    private void viewWine(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest,
+                          int wine_id) {
         logger.info("Method: viewWine wine_id:"+wine_id);
 
         boolean check = jsonHelper.checkIfRequestIsEmpty(fullHttpRequest);
 
         WineDAO wineDAO = new WineDAO(persistenceManager);
         WineEntity wineEntity = wineDAO.getWine(wine_id);
-        JSONObject replyJSON = storeJSONHelper.getJSONObject(wineEntity);
-        httpResponder.respond(ctx,fullHttpRequest,replyJSON,userVO);
+        JSONObject replyJSON = storeJSONHelper.getWineJSONObject(wineEntity);
+
+        httpResponder.respond2(channelHandlerContext,fullHttpRequest,replyJSON,null,null);
+
+        //httpResponder.respond(ctx,fullHttpRequest,replyJSON,userVO);
 
     }
 

@@ -97,11 +97,11 @@ public class StoreJSONHelper {
     }
 
 
-    public JSONObject getJSONObject(WineEntity wineEntity) {
+    public JSONObject getWineJSONObject(WineEntity wineEntity) {
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("data", loadTaskEntityIntoJSON(wineEntity));
+            jsonObject.put("wine", loadTaskEntityIntoJSON(wineEntity));
 
         } catch (JSONException e) {
             logger.error("getJSONObject: error:"+e.getMessage());
