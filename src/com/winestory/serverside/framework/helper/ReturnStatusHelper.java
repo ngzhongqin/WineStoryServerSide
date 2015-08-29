@@ -44,7 +44,7 @@ public class ReturnStatusHelper {
 
     public StatusVO getSEC104_SignUpFail(){
         String code = "SEC-104";
-        String message = "We failed to sign you up. Maybe your email is already taken?";
+        String message = "We failed to sign you up. Maybe your chosen email is already taken?";
         String colour = "R";
 
         return new StatusVO(code,message,colour);
