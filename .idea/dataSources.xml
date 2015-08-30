@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2693575602">
+  <component name="DataSourceManagerImpl" format="xml" hash="4256406073">
     <data-source source="LOCAL" name="PostgreSQL - winestory@localhost" uuid="808b50ca-e527-4d1d-91ec-7bb67dd3e671">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

@@ -2,8 +2,10 @@ package com.winestory.serverside.handler.cart;
 
 import com.winestory.serverside.framework.JSONHelper;
 import com.winestory.serverside.framework.UUIDGenerator;
+import com.winestory.serverside.framework.VO.OrderVO;
 import com.winestory.serverside.framework.VO.SessionVO;
 import com.winestory.serverside.framework.VO.UserVO;
+import com.winestory.serverside.framework.database.DAO.OrderDAO;
 import com.winestory.serverside.framework.database.DAO.SessionDAO;
 import com.winestory.serverside.framework.database.DAO.UserDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
@@ -39,64 +41,57 @@ public class CartHandler {
         Router router = new Router(fullHttpRequest.getUri(),persistenceManager);
         String action = router.getAction();
         Map<String,List<String>> params = router.getParameters();
-        String session_id = router.getSession();
+        UserVO userVO = router.getUser();
 
         if(params.isEmpty()){
             logger.info("No Params");
         }else{
 
-            if("GetDetails".equals(action)){
-                logger.info("Action = GetDetails");
-                getDetails(ctx, fullHttpRequest);
-                return;
-            }
-
             if("PrepCart".equals(action)){
                 logger.info("Action = PrepCart");
-                prepCart(ctx, fullHttpRequest);
+                prepCart(ctx, fullHttpRequest,userVO);
                 return;
             }
 
         }
     }
 
-    private void prepCart(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest) {
+    private void prepCart(ChannelHandlerContext channelHandlerContext,
+                          FullHttpRequest fullHttpRequest,
+                          UserVO userVO) {
         logger.info("Method: prepCart");
         logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
-    }
-
-    private void getDetails(ChannelHandlerContext ctx, FullHttpRequest req){
-        logger.info("Method: getDetails");
-        logger.info("content:"+req.content().toString(CharsetUtil.UTF_8));
-
-        String reqString = req.content().toString(CharsetUtil.UTF_8);
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
 
         try {
             if(reqString!=null) {
                 if(!reqString.isEmpty()) {
+
+                    //Get User inputs
                     JSONObject incoming = new JSONObject(reqString);
-
                     JSONHelper jsonHelper = new JSONHelper();
-
                     JSONObject data = jsonHelper.getJSONObject(incoming, "data");
-                    JSONArray globalCart = jsonHelper.getJSONArray(data,"globalCart");
+                    OrderVO orderVO = new CartJSONHelper().getOrderVO(data,userVO,persistenceManager);
 
+                    //Validate user inputs
 
-                    if(globalCart == null){
-                        //return empty object back to client side. don't leave them hanging.
-                    }else{
-                        //objects are available in globalCart
-                        int i = 0;
-                        int size = globalCart.length();
-                        while(i<size){
-                            JSONObject wine = globalCart.getJSONObject(i);
-                            int wine_id = jsonHelper.getInt(wine,"id");
-                            int qty = jsonHelper.getInt(wine,"qty");
-                            logger.info("getDetails: wine_id:"+wine_id+" qty:"+qty);
-                            i++;
-                        }
+                    //process
 
-                    }
+                    Number sub_total = getSubTotal(orderVO);
+                    Number shipping_cost = getShippingCost(sub_total);
+                    Number tax = getTax(sub_total);
+                    Number total = sub_total.doubleValue()+shipping_cost.doubleValue()+tax.doubleValue();
+
+                    orderVO.setSub_total(sub_total.doubleValue());
+                    orderVO.setShipping_cost(shipping_cost.doubleValue());
+                    orderVO.setTax(tax.doubleValue());
+                    orderVO.setTotal_cost(total.doubleValue());
+                    logger.info("Total: $"+total);
+
+                    //Save order
+                    OrderDAO orderDAO = new OrderDAO(persistenceManager);
+                    orderDAO.createOrder(orderVO);
+                    //response
 
 
                 }else{
@@ -109,4 +104,51 @@ public class CartHandler {
         }
     }
 
+    private Number getTax(Number sub_total) {
+        Number tax =sub_total.doubleValue() * 0.07;
+        logger.info("getTax: $"+tax);
+        return tax;
+    }
+
+    private Number getShippingCost(Number sub_total) {
+        Number shipping_cost = 0;
+        if(sub_total.doubleValue()<200){
+            shipping_cost =  20;
+        }else {
+            shipping_cost =  0;
+        }
+        logger.info("getShippingCost: $"+shipping_cost);
+        return shipping_cost;
+    }
+
+    private Number getSubTotal(OrderVO orderVO) {
+        Number returnNumber = 0;
+        if(orderVO!=null){
+            if(orderVO.getOrderItemVOArrayList()!=null){
+                int i = 0;
+                int size = orderVO.getOrderItemVOArrayList().size();
+                while(i<size){
+                    if(orderVO.getOrderItemVOArrayList().get(i).getQuantity()>0){
+                        if(orderVO.getOrderItemVOArrayList().get(i).getUnit_price().doubleValue()>0){
+                            Number unitPriceTimesQuantity = orderVO.getOrderItemVOArrayList().get(i).getQuantity() *
+                                    orderVO.getOrderItemVOArrayList().get(i).getUnit_price().doubleValue();
+                            returnNumber = returnNumber.doubleValue() + unitPriceTimesQuantity.doubleValue();
+                        }else{
+                            logger.error("getSubTotal getUnit_price is 0 or less for object i:"+i);
+                        }
+                    }else{
+                        logger.error("getSubTotal getQuantity is 0 or less for object i:"+i);
+                    }
+                    i++;
+                }
+            }else{
+                logger.error("getSubTotal orderVO.getOrderItemVOArrayList is null");
+            }
+        }else{
+            logger.error("getSubTotal orderVO is null");
+        }
+        logger.info("getSubTotal: $"+returnNumber);
+        return returnNumber;
+    }
 }
+

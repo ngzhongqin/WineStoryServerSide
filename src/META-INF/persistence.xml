@@ -6,6 +6,8 @@
         <class>com.winestory.serverside.framework.database.Entity.UserEntity</class>
         <class>com.winestory.serverside.framework.database.Entity.SessionEntity</class>
         <class>com.winestory.serverside.framework.database.Entity.WineEntity</class>
+        <class>com.winestory.serverside.framework.database.Entity.OrderEntity</class>
+        <class>com.winestory.serverside.framework.database.Entity.OrderItemEntity</class>
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/winestory"/>
             <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>

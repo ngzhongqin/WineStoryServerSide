@@ -1,5 +1,6 @@
 package com.winestory.serverside.framework.database.DAO;
 
+import com.winestory.serverside.framework.VO.WineVO;
 import com.winestory.serverside.framework.database.Entity.WineEntity;
 import com.winestory.serverside.framework.database.PersistenceManager;
 import org.apache.log4j.Logger;
@@ -46,6 +47,20 @@ public class WineDAO {
         }
 
         return wineEntity;
+    }
+
+    public WineVO getWineVO(int wine_id) {
+        WineEntity wineEntity = getWine(wine_id);
+        WineVO wineVO = null;
+        if(wineEntity!=null){
+            wineVO = new WineVO(wineEntity.getId(),wineEntity.getName(),
+                    wineEntity.getImage_path(), wineEntity.getTasting_note(),
+                    wineEntity.getYear(),wineEntity.getColour(),
+                    wineEntity.getNose(), wineEntity.getPalate(),
+                    wineEntity.getGrapes(), wineEntity.getVolume(),
+                    wineEntity.getAvailable_stock(), wineEntity.getPrice());
+        }
+        return wineVO;
     }
 
 }
