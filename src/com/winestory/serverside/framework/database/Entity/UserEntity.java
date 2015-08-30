@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 /**
  * Created by zhongqinng on 23/7/15.
+ * UserEntity
  */
 @Entity
 @Table(name = "user", schema = "winestory", catalog = "winestory")
@@ -11,6 +12,9 @@ public class UserEntity {
     private String email;
     private String full_name;
     private String password_salt_hash;
+    private String mobile;
+    private String address;
+    private String postal_code;
 
     @Id
     @SequenceGenerator(name="user_id_seq",
@@ -63,10 +67,39 @@ public class UserEntity {
 
         UserEntity that = (UserEntity) o;
 
-        if (id != that.id) return false;
+        if (!id .equals( that.id)) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
 
         return true;
     }
 
+    @Basic
+    @Column(name = "mobile")
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    @Basic
+    @Column(name = "address")
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Basic
+    @Column(name = "postal_code")
+    public String getPostal_code() {
+        return postal_code;
+    }
+
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
+    }
 }

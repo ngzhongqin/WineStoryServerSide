@@ -9,13 +9,16 @@ public class UserVO {
     private String full_name;
     private String email;
     private String password_salt_hash;
+    private String postal_code;
+    private String address;
+    private String mobile;
 
     public UserVO(){
 
     }
 
     public UserVO(Long id,
-                String full_name,
+                  String full_name,
                   String email,
                   String password_salt_hash){
         this.id=id;
@@ -62,5 +65,29 @@ public class UserVO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPostal_code() {
+        return postal_code;
+    }
+
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

@@ -18,6 +18,9 @@
       <column name="email" sqlType="varchar" precision="50" scale="0" nullable="false" jdbcType="12"/>
       <column name="full_name" sqlType="varchar" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <column name="password_salt_hash" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="varchar" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postal_code" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mobile" sqlType="varchar" precision="10" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="user_pkey" columns="id"/>
       <index name="user_email_key" unique="true" columns="email"/>
     </table>

@@ -5,6 +5,7 @@ import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.database.DAO.WineDAO;
 import com.winestory.serverside.framework.database.Entity.WineEntity;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.framework.helper.ReturnStatusHelper;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.router.Router;
 import io.netty.channel.ChannelHandlerContext;
@@ -58,7 +59,24 @@ public class SessionHandler {
                 return;
             }
 
+            if("GetCurrentUserWithAddress".equals(action)){
+                logger.info("Action = GetCurrentUserWithAddress");
+                getCurrentUserWithAddress(ctx,fullHttpRequest,userVO);
+            }
+
         }
+    }
+
+    private void getCurrentUserWithAddress(ChannelHandlerContext channelHandlerContext,
+                                           FullHttpRequest fullHttpRequest,
+                                           UserVO userVO) {
+
+        httpResponder.respond2(channelHandlerContext,
+                fullHttpRequest,
+                new SessionJSONHelper().getUserVOWithAddress(userVO),
+                null,
+                null);
+
     }
 
     public void getCurrentUser(ChannelHandlerContext ctx, FullHttpRequest fullHttpRequest, UserVO userVO) {

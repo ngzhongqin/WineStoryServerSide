@@ -19,7 +19,7 @@ public class UserDAO {
     public UserDAO(PersistenceManager persistenceManager){
 
         this.persistenceManager = persistenceManager;
-    };
+    }
 
     public UserVO createNewUser(UserVO userVO){
         EntityTransaction tx = persistenceManager.getEm().getTransaction();
@@ -64,6 +64,9 @@ public class UserDAO {
                                     userEntity.getFull_name(),
                                     userEntity.getEmail(),
                                     userEntity.getPassword_salt_hash());
+                userVO.setPostal_code(userEntity.getPostal_code());
+                userVO.setAddress(userEntity.getAddress());
+                userVO.setMobile(userEntity.getMobile());
             }
         }catch (Exception e){
             logger.error("getUser: ERROR: "+e.getMessage());
@@ -86,6 +89,9 @@ public class UserDAO {
                         userEntity.getFull_name(),
                         userEntity.getEmail(),
                         userEntity.getPassword_salt_hash());
+                userVO.setPostal_code(userEntity.getPostal_code());
+                userVO.setAddress(userEntity.getAddress());
+                userVO.setMobile(userEntity.getMobile());
             }
         }catch (Exception e){
             logger.error("getUser: ERROR: "+e.getMessage());
