@@ -79,6 +79,7 @@ public class CartJSONHelper {
                     orderItemVO.setName(wineVO.getName());
                     orderItemVO.setUnit_price(wineVO.getPrice());
                     orderItemVO.setWine_id(wine_id);
+//                    logger.info("orderItemVO.setWine_id(wine_id); wine_id:"+wine_id);
                     orderItemVO.setWineVO(wineVO);
                     if(quantity>0){
                         orderItemVO.setQuantity(quantity);
@@ -96,5 +97,47 @@ public class CartJSONHelper {
             i++;
         }
         return orderItemVOArrayList;
+    }
+
+    public JSONObject getPrepCartJSON(OrderVO orderVO) {
+        JSONObject data = new JSONObject();
+        if(orderVO!=null){
+            try {
+                data.put("sub_total",orderVO.getSub_total());
+                data.put("tax",orderVO.getTax());
+                data.put("shipping_cost",orderVO.getShipping_cost());
+                data.put("total",orderVO.getTotal_cost());
+                data.put("email",orderVO.getEmail());
+                data.put("address",orderVO.getAddress());
+                data.put("mobile",orderVO.getMobile());
+                data.put("postal_code",orderVO.getPostal_code());
+                data.put("full_name",orderVO.getFull_name());
+                data.put("other_instructions",orderVO.getOther_instructions());
+
+                if(orderVO.getOrderItemVOArrayList()!=null){
+                    JSONArray items = new JSONArray();
+                    int size = orderVO.getOrderItemVOArrayList().size();
+                    int i = 0;
+                    while(i<size){
+                        JSONObject item = new JSONObject();
+                        item.put("name",orderVO.getOrderItemVOArrayList().get(i).getName());
+                        item.put("id",orderVO.getOrderItemVOArrayList().get(i).getWine_id());
+                        item.put("price",orderVO.getOrderItemVOArrayList().get(i).getUnit_price());
+                        item.put("quantity",orderVO.getOrderItemVOArrayList().get(i).getQuantity());
+                        items.put(item);
+                        i++;
+                    }
+                    data.put("items",items);
+
+                }else{
+                    logger.error("getPrepCartJSON; orderVO.getOrderItemVOArrayList() is null");
+                }
+            } catch (JSONException e) {
+                logger.error("getPrepCartJSON; JSONException");
+            }
+        }else{
+            logger.error("getPrepCartJSON; orderVO is null");
+        }
+        return data;
     }
 }

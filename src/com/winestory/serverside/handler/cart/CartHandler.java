@@ -88,11 +88,20 @@ public class CartHandler {
                     orderVO.setTotal_cost(total.doubleValue());
                     logger.info("Total: $"+total);
 
+                    //get PayPal hidden value
+
+
                     //Save order
                     OrderDAO orderDAO = new OrderDAO(persistenceManager);
                     orderDAO.createOrder(orderVO);
+
                     //response
 
+                    httpResponder.respond2(channelHandlerContext,
+                            fullHttpRequest,
+                            new CartJSONHelper().getPrepCartJSON(orderVO),
+                            null,
+                            null);
 
                 }else{
                     logger.info("INCOMING REQUEST IS EMPTY!");
