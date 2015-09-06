@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CONFIGURATION>
+	<ALL_SERVICES>
+		<SERVICE>
+				<SERVICE_ID>store</SERVICE_ID>
+				<CLASS_NAME>com.winestory.serverside.handler.store.StoreHandler</CLASS_NAME>
+				<QUERY></QUERY>
+		</SERVICE>
+		<SERVICE>
+			<SERVICE_ID>login</SERVICE_ID>
+			<CLASS_NAME>com.winestory.serverside.handler.login.LoginHandler</CLASS_NAME>
+			<QUERY></QUERY>
+		</SERVICE>
+		<SERVICE>
+			<SERVICE_ID>signup</SERVICE_ID>
+			<CLASS_NAME>com.winestory.serverside.handler.signup.SignUpHandler</CLASS_NAME>
+			<QUERY></QUERY>
+		</SERVICE>
+        <SERVICE>
+            <SERVICE_ID>cart</SERVICE_ID>
+            <CLASS_NAME>com.winestory.serverside.handler.cart.CartHandler</CLASS_NAME>
+            <QUERY></QUERY>
+        </SERVICE>
+        <SERVICE>
+            <SERVICE_ID>session</SERVICE_ID>
+            <CLASS_NAME>com.winestory.serverside.handler.session.SessionHandler</CLASS_NAME>
+            <QUERY></QUERY>
+        </SERVICE>
+	</ALL_SERVICES>
+</CONFIGURATION>
