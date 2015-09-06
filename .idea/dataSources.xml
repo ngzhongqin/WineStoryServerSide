@@ -11,77 +11,7 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/winestory</jdbc-url>
-      <libraries>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/commons-collections-3.1.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/commons-configuration-1.5.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/commons-digester-1.8.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/commons-lang-2.4.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/commons-logging.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/eclipselink.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/flex-messaging-core-3.2.0.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/gson-2.2.2.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/java-json.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/javax.persistence.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/jcl-over-slf4j-1.7.2.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/jetlang-0.2.0.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/json-simple-1.1.1.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/log4j-1.2.16.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/netty-all-4.0.30.Final.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/postgresql-9.4-1201.jdbc4.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/slf4j-log4j12-1.6.1.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/slf4j.api-1.6.1.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/spring-aop-3.1.0.RELEASE.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/spring-beans-3.1.0.RELEASE.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/spring-context-3.1.0.RELEASE.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/spring-core-3.1.0.RELEASE.jar!/</url>
-        </library>
-        <library>
-          <url>jar://$PROJECT_DIR$/../library/winestory/spring-expression-3.1.0.RELEASE.jar!/</url>
-        </library>
-      </libraries>
+      <libraries />
     </data-source>
   </component>
 </project>

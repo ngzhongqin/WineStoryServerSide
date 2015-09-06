@@ -186,3 +186,18 @@ INSERT INTO winestory.wine
     UPDATE winestory.user SET address = '76 Jalan Kasau', postal_code = '739666', mobile = '90497848'
       WHERE id = 1;
 
+    UPDATE winestory.wine SET image_path = 'images/wines/1.jpg' WHERE id = 1;
+    UPDATE winestory.wine SET image_path = 'images/wines/2.jpg' WHERE id = 2;
+    UPDATE winestory.wine SET image_path = 'images/wines/3.jpg' WHERE id = 3;
+    UPDATE winestory.wine SET image_path = 'images/wines/4.jpg' WHERE id = 4;
+    UPDATE winestory.wine SET image_path = 'images/wines/5.jpg' WHERE id = 5;
+    UPDATE winestory.wine SET image_path = 'images/wines/6.jpg' WHERE id = 6;
+    UPDATE winestory.wine SET image_path = 'images/wines/7.jpg' WHERE id = 7;
+    UPDATE winestory.wine SET image_path = 'images/wines/8.jpg' WHERE id = 8;
+    UPDATE winestory.wine SET image_path = 'images/wines/9.jpg' WHERE id = 9;
+    UPDATE winestory.wine SET image_path = 'images/wines/10.jpg' WHERE id = 10;
+    UPDATE winestory.wine SET image_path = 'images/wines/11.jpg' WHERE id = 11;
+    UPDATE winestory.wine SET image_path = 'images/wines/12.jpg' WHERE id = 12;
+    UPDATE winestory.wine SET image_path = 'images/wines/13.jpg' WHERE id = 13;
+    UPDATE winestory.wine SET image_path = 'images/wines/14.jpg' WHERE id = 14;
+    UPDATE winestory.wine SET image_path = 'images/wines/15.jpg' WHERE id = 15;
