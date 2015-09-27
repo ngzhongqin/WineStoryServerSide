@@ -7,6 +7,7 @@ import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.VO.WineVO;
 import com.winestory.serverside.framework.database.DAO.WineDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.framework.helper.PayPalHelper;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -101,6 +102,8 @@ public class CartJSONHelper {
 
     public JSONObject getPrepCartJSON(OrderVO orderVO) {
         JSONObject data = new JSONObject();
+        PayPalHelper payPalHelper = new PayPalHelper();
+
         if(orderVO!=null){
             try {
                 data.put("sub_total",orderVO.getSub_total());
@@ -113,6 +116,7 @@ public class CartJSONHelper {
                 data.put("postal_code",orderVO.getPostal_code());
                 data.put("full_name",orderVO.getFull_name());
                 data.put("other_instructions",orderVO.getOther_instructions());
+                data.put("paypal_button_value", payPalHelper.getPayPalEncryptButtonValue(orderVO));
 
                 if(orderVO.getOrderItemVOArrayList()!=null){
                     JSONArray items = new JSONArray();
