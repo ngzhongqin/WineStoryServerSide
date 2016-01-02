@@ -1,10 +1,14 @@
-package com.winestory.serverside.handler.cart;
+package com.winestory.serverside.handler.order;
 
 import com.winestory.serverside.framework.JSONHelper;
 import com.winestory.serverside.framework.VO.OrderVO;
+import com.winestory.serverside.framework.VO.PaymentVO;
+import com.winestory.serverside.framework.VO.StatusVO;
 import com.winestory.serverside.framework.VO.UserVO;
+import com.winestory.serverside.framework.constants.OrderState;
 import com.winestory.serverside.framework.database.DAO.OrderDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.framework.payment.StripePayment;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.router.Router;
 import io.netty.channel.ChannelHandlerContext;
@@ -17,13 +21,16 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Map;
 
-
-public class CartHandler {
-    public Logger logger = Logger.getLogger(CartHandler.class);
+/**
+ * Created by zhongqinng on 27/12/15.
+ * To accept Stripe Token
+ */
+public class OrderHandler {
+    public Logger logger = Logger.getLogger(OrderHandler.class);
     private HTTPResponder httpResponder;
     private PersistenceManager persistenceManager;
 
-    public CartHandler(PersistenceManager persistenceManager){
+    public OrderHandler(PersistenceManager persistenceManager){
         this.httpResponder = new HTTPResponder();
         this.persistenceManager=persistenceManager;
     }
@@ -39,19 +46,20 @@ public class CartHandler {
             logger.info("No Params");
         }else{
 
-            if(CartConstants.PrepCart.equals(action)){
-                logger.info("Action = "+CartConstants.PrepCart);
-                prepCart(ctx, fullHttpRequest,userVO);
+            if(OrderConstants.submitOrder.equals(action)){
+                logger.info("Action:"+ OrderConstants.submitOrder);
+                submitOrder(ctx, fullHttpRequest, userVO);
                 return;
             }
 
         }
     }
 
-    private void prepCart(ChannelHandlerContext channelHandlerContext,
+    private void submitOrder(ChannelHandlerContext channelHandlerContext,
                           FullHttpRequest fullHttpRequest,
                           UserVO userVO) {
-        logger.info("Method: "+CartConstants.PrepCart);
+        logger.info("Method:"+ OrderConstants.submitOrder);
+
         logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
         String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
 
@@ -63,9 +71,7 @@ public class CartHandler {
                     JSONObject incoming = new JSONObject(reqString);
                     JSONHelper jsonHelper = new JSONHelper();
                     JSONObject data = jsonHelper.getJSONObject(incoming, "data");
-                    OrderVO orderVO = new CartJSONHelper().getOrderVO(data,userVO,persistenceManager);
-
-                    //Validate user inputs
+                    OrderVO orderVO = new OrderJSONHelper().getOrderVO(data, userVO, persistenceManager);
 
                     //process
 
@@ -80,17 +86,20 @@ public class CartHandler {
                     orderVO.setTotal_cost(total.doubleValue());
                     logger.info("Total: $"+total);
 
-
                     //Save order
-//                    OrderDAO orderDAO = new OrderDAO(persistenceManager);
-//                    orderDAO.createOrder(orderVO);
+                    OrderDAO orderDAO = new OrderDAO(persistenceManager);
+                    orderVO = orderDAO.createOrder(orderVO);
+
+                    //charging to Token
+                    StripePayment stripePayment = new StripePayment(persistenceManager);
+                    orderVO = stripePayment.charge(orderVO);
 
                     //response
 
                     httpResponder.respond2(channelHandlerContext,
                             fullHttpRequest,
-                            new CartJSONHelper().getPrepCartJSON(orderVO),
-                            null,
+                            new OrderJSONHelper().getSubmitOrderResponse(orderVO),
+                            getSubmitOrderStatus(orderVO),
                             null);
 
                 }else{
@@ -100,6 +109,24 @@ public class CartHandler {
         } catch (JSONException e) {
             logger.error("incoming reqString that caused error: "+reqString);
             e.printStackTrace();
+        }
+    }
+
+    private StatusVO getSubmitOrderStatus(OrderVO orderVO){
+        if(OrderState.CHARGE_SUCC.equals(orderVO.getOrder_state())){
+            return new StatusVO(OrderConstants.CODE_ORDER_SUCC, OrderConstants.MSG_ORDER_SUCC, OrderConstants.COLOUR_ORDER_SUCC);
+        }else{
+            String message = OrderConstants.MSG_ORDER_FAIL;
+            if(orderVO!=null){
+                if(orderVO.getPaymentVO()!=null){
+                    if(orderVO.getPaymentVO().getPayment_error()!=null){
+                        if(!orderVO.getPaymentVO().getPayment_error().isEmpty()){
+                            message=orderVO.getPaymentVO().getPayment_error();
+                        }
+                    }
+                }
+            }
+            return new StatusVO(OrderConstants.CODE_ORDER_FAIL, message, OrderConstants.COLOUR_ORDER_FAIL);
         }
     }
 
@@ -150,4 +177,3 @@ public class CartHandler {
         return returnNumber;
     }
 }
-

@@ -1,8 +1,12 @@
 package com.winestory.serverside.framework.database.DAO;
 
 import com.winestory.serverside.framework.VO.OrderVO;
+import com.winestory.serverside.framework.VO.PaymentVO;
+import com.winestory.serverside.framework.constants.OrderState;
+import com.winestory.serverside.framework.constants.PaymentState;
 import com.winestory.serverside.framework.database.Entity.OrderEntity;
 import com.winestory.serverside.framework.database.Entity.OrderItemEntity;
+import com.winestory.serverside.framework.database.Entity.PaymentEntity;
 import com.winestory.serverside.framework.database.PersistenceManager;
 import org.apache.log4j.Logger;
 
@@ -22,7 +26,7 @@ public class OrderDAO {
         this.persistenceManager = persistenceManager;
     }
 
-    public void createOrder(OrderVO orderVO){
+    public OrderVO createOrder(OrderVO orderVO){
         EntityTransaction tx = persistenceManager.getEm().getTransaction();
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setMobile(orderVO.getMobile());
@@ -37,15 +41,44 @@ public class OrderDAO {
         orderEntity.setShipping_cost(orderVO.getShipping_cost());
         orderEntity.setOther_instructions(orderVO.getOther_instructions());
         orderEntity.setTax(orderVO.getTax());
+        orderEntity.setOrder_state(OrderState.CHARGE_PEND);
+
 
         logger.info("before tx.begin orderEntity.id:" + orderEntity.getId());
         tx.begin();
+
         persistenceManager.getEm().persist(orderEntity);
         logger.info("before commit orderEntity.id:" + orderEntity.getId());
         saveOrderItems(orderVO, orderEntity.getId());
-
+        long payment_id = savePaymentDetails(orderVO,orderEntity.getId());
+        orderEntity.setPayment_id(payment_id);
+        persistenceManager.getEm().persist(orderEntity);
         tx.commit();
         logger.info("after commit orderEntity.id:"+orderEntity.getId());
+
+        orderVO.setId(orderEntity.getId());
+        return orderVO;
+    }
+
+    public long savePaymentDetails(OrderVO orderVO, long orderId){
+        logger.info("savePaymentDetails: orderId:"+orderId);
+
+        PaymentEntity paymentEntity = new PaymentEntity();
+        paymentEntity.setPayment_state(PaymentState.CHARGE_PEND);
+        if(orderVO!=null){
+            if(orderVO.getPaymentVO()!=null){
+                paymentEntity.setToken(orderVO.getPaymentVO().getToken());
+            }else{
+                logger.error("createOrder: orderVO.getPaymentVO() is NULL");
+            }
+            paymentEntity.setUser_id(orderVO.getUser_id());
+        }
+
+        paymentEntity.setCreateddt(new Timestamp(System.currentTimeMillis()));
+        paymentEntity.setOrder_id(orderId);
+        paymentEntity.setTotal_cost(orderVO.getTotal_cost());
+        persistenceManager.getEm().persist(paymentEntity);
+        return  paymentEntity.getId();
     }
 
     public void saveOrderItems(OrderVO orderVO, long orderId){
@@ -68,6 +101,60 @@ public class OrderDAO {
                 }
             }
         }
+    }
+
+    public OrderVO saveOrderState(OrderVO orderVO,
+                                  String orderState,
+                                  String paymentState,
+                                  String paymentError,
+                                  String stripeTxnId,
+                                  String stripeTxnDescription,
+                                  String stripeResponse){
+        OrderEntity orderEntity = getOrderEntity(orderVO.getId());
+        orderEntity.setOrder_state(orderState);
+
+        PaymentDAO paymentDAO = new PaymentDAO(persistenceManager);
+        PaymentEntity paymentEntity = paymentDAO.setPaymentStateAndErrorNoCommit(
+                orderEntity.getPayment_id(),
+                paymentState,
+                paymentError,
+                stripeTxnId,
+                stripeTxnDescription,
+                stripeResponse);
+
+        EntityTransaction tx = persistenceManager.getEm().getTransaction();
+        tx.begin();
+
+        persistenceManager.getEm().persist(orderEntity);
+        persistenceManager.getEm().persist(paymentEntity);
+
+        tx.commit();
+
+        orderVO.setOrder_state(orderState);
+
+        PaymentVO paymentVO = orderVO.getPaymentVO();
+        paymentVO.setPayment_error(paymentError);
+        paymentVO.setPayment_state(paymentState);
+        paymentVO.setStripeTxnId(stripeTxnId);
+        paymentVO.setStripeTxnDescription(stripeTxnDescription);
+        orderVO.setPaymentVO(paymentVO);
+
+        return orderVO;
+    }
+
+    public OrderEntity getOrderEntity(long order_id){
+        OrderEntity orderEntity = null;
+        try {
+            orderEntity = (OrderEntity)
+                    persistenceManager.getEm()
+                            .createQuery("SELECT order FROM OrderEntity order where order.id = :order_id ")
+                            .setParameter("order_id", order_id)
+                            .getSingleResult();
+        }catch (Exception e){
+            logger.error("getOrderEntity: order_id:"+order_id+" ERROR: "+e.getMessage());
+        }
+
+        return orderEntity;
     }
 
 

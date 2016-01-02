@@ -35,6 +35,8 @@ public class SessionJSONHelper {
             } catch (JSONException e) {
                 logger.error("getUserVOwithAddress JSONException");
             }
+        }else {
+            logger.error("userVO is NULL");
         }
         return jsonObject;
     }

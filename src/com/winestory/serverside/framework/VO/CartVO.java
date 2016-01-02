@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 /**
  * Created by zhongqinng on 30/8/15.
- * OrderVO
+ * CartVO
  */
-public class OrderVO {
+public class CartVO {
     private long id;
     private String email;
     private String full_name;
@@ -22,11 +22,11 @@ public class OrderVO {
     private long user_id;
     private UserVO userVO;
     private String other_instructions;
-    private ArrayList<OrderItemVO> orderItemVOArrayList;
+    private ArrayList<CartItemVO> cartItemVOArrayList;
     private String order_state;
-    private PaymentVO paymentVO;
 
-    public OrderVO(){}
+
+    public CartVO(){}
 
     public long getId() {
         return id;
@@ -88,10 +88,6 @@ public class OrderVO {
         return total_cost;
     }
 
-    public int getTotal_cost_in_cents(){
-        return (int) total_cost*100;
-    }
-
     public void setTotal_cost(double total_cost) {
         this.total_cost = total_cost;
     }
@@ -120,12 +116,12 @@ public class OrderVO {
         this.user_id = user_id;
     }
 
-    public ArrayList<OrderItemVO> getOrderItemVOArrayList() {
-        return orderItemVOArrayList;
+    public ArrayList<CartItemVO> getCartItemVOArrayList() {
+        return cartItemVOArrayList;
     }
 
-    public void setOrderItemVOArrayList(ArrayList<OrderItemVO> orderItemVOArrayList) {
-        this.orderItemVOArrayList = orderItemVOArrayList;
+    public void setCartItemVOArrayList(ArrayList<CartItemVO> cartItemVOArrayList) {
+        this.cartItemVOArrayList = cartItemVOArrayList;
     }
 
     public String getOther_instructions() {
@@ -159,13 +155,5 @@ public class OrderVO {
 
     public void setOrder_state(String order_state) {
         this.order_state = order_state;
-    }
-
-    public PaymentVO getPaymentVO() {
-        return paymentVO;
-    }
-
-    public void setPaymentVO(PaymentVO paymentVO) {
-        this.paymentVO = paymentVO;
     }
 }

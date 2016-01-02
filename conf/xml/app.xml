@@ -2,9 +2,9 @@
 <CONFIGURATION>
 	<ALL_SERVICES>
 		<SERVICE>
-				<SERVICE_ID>store</SERVICE_ID>
-				<CLASS_NAME>com.winestory.serverside.handler.store.StoreHandler</CLASS_NAME>
-				<QUERY></QUERY>
+			<SERVICE_ID>store</SERVICE_ID>
+			<CLASS_NAME>com.winestory.serverside.handler.store.StoreHandler</CLASS_NAME>
+			<QUERY></QUERY>
 		</SERVICE>
 		<SERVICE>
 			<SERVICE_ID>login</SERVICE_ID>
@@ -26,5 +26,10 @@
             <CLASS_NAME>com.winestory.serverside.handler.session.SessionHandler</CLASS_NAME>
             <QUERY></QUERY>
         </SERVICE>
+		<SERVICE>
+			<SERVICE_ID>order</SERVICE_ID>
+			<CLASS_NAME>com.winestory.serverside.handler.order.OrderHandler</CLASS_NAME>
+			<QUERY></QUERY>
+		</SERVICE>
 	</ALL_SERVICES>
 </CONFIGURATION>

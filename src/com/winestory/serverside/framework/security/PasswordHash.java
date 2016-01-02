@@ -125,6 +125,8 @@ public class PasswordHash
         byte[] testHash = pbkdf2(password, salt, iterations, hash.length);
         // Compare the hashes in constant time. The password is correct if
         // both hashes match.
+
+        logger.info("hash:"+ hash.toString()+" testHash:"+testHash.toString());
         return slowEquals(hash, testHash);
     }
 

@@ -92,7 +92,9 @@ CREATE TABLE IF NOT EXISTS winestory.order (
   total_cost decimal,
   createddt timestamp,
   user_id int,
-  other_instructions varchar(1000)
+  other_instructions varchar(1000),
+  order_state VARCHAR(20),
+  payment_id int
 );
 
 DROP SEQUENCE orderItem_id_seq;
@@ -110,3 +112,56 @@ CREATE TABLE IF NOT EXISTS winestory.orderItem (
   wine_id int
 );
 
+DROP SEQUENCE cart_id_seq;
+DROP TABLE winestory.cart;
+
+CREATE SEQUENCE cart_id_seq;
+CREATE TABLE IF NOT EXISTS winestory.cart (
+  id serial PRIMARY KEY,
+  email varchar(50),
+  full_name varchar(100),
+  address varchar(200),
+  postal_code varchar(10),
+  mobile varchar(10),
+  sub_total decimal,
+  shipping_cost decimal,
+  tax decimal,
+  total_cost decimal,
+  createddt timestamp,
+  user_id int,
+  other_instructions varchar(1000),
+  order_state VARCHAR(20)
+);
+
+DROP SEQUENCE cartItem_id_seq;
+DROP TABLE winestory.cartItem;
+
+CREATE SEQUENCE cartItem_id_seq;
+CREATE TABLE IF NOT EXISTS winestory.cartItem (
+  id serial PRIMARY KEY,
+  name varchar(100),
+  unit_price decimal,
+  quantity int,
+  cart_id int,
+  createddt timestamp,
+  user_id int,
+  wine_id int
+);
+
+DROP SEQUENCE payment_id_seq;
+DROP TABLE winestory.payment;
+
+CREATE SEQUENCE payment_id_seq;
+CREATE TABLE IF NOT EXISTS winestory.payment (
+  id serial PRIMARY KEY,
+  token varchar(50),
+  order_id int,
+  user_id int,
+  total_cost decimal,
+  createddt timestamp,
+  payment_state VARCHAR(100),
+  payment_error VARCHAR(1000),
+  stripe_txn_id VARCHAR(100),
+  stripe_response VARCHAR(2000),
+  stripe_txn_description VARCHAR(100)
+);

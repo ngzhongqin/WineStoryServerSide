@@ -1,49 +1,45 @@
-package com.winestory.serverside.framework.VO;
+package com.winestory.serverside.framework.database.Entity;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 
 /**
- * Created by zhongqinng on 30/8/15.
- * OrderVO
+ * Created by zhongqinng on 23/7/15.
+ * UserEntity
  */
-public class OrderVO {
-    private long id;
+@Entity
+@Table(name = "cart", schema = "winestory")
+public class CartEntity {
     private String email;
     private String full_name;
+    private String mobile;
     private String address;
     private String postal_code;
-    private String mobile;
-    private double tax;
     private double shipping_cost;
+    private double tax;
     private double total_cost;
     private double sub_total;
     private Timestamp createddt;
     private long user_id;
-    private UserVO userVO;
     private String other_instructions;
-    private ArrayList<OrderItemVO> orderItemVOArrayList;
     private String order_state;
-    private PaymentVO paymentVO;
 
-    public OrderVO(){}
+    @Id
+    @SequenceGenerator(name="cart_id_seq",
+            sequenceName="cart_id_seq",
+            allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator="cart_id_seq")
+    @Column(name = "id", updatable=false)
+    private Long id;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
+    public Long getId(){return this.id;}
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    @Basic
+    @Column(name = "full_name")
     public String getFull_name() {
         return full_name;
     }
@@ -52,22 +48,18 @@ public class OrderVO {
         this.full_name = full_name;
     }
 
-    public String getAddress() {
-        return address;
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getPostal_code() {
-        return postal_code;
-    }
-
-    public void setPostal_code(String postal_code) {
-        this.postal_code = postal_code;
-    }
-
+    @Basic
+    @Column(name = "mobile")
     public String getMobile() {
         return mobile;
     }
@@ -76,6 +68,28 @@ public class OrderVO {
         this.mobile = mobile;
     }
 
+    @Basic
+    @Column(name = "address")
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Basic
+    @Column(name = "postal_code")
+    public String getPostal_code() {
+        return postal_code;
+    }
+
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
+    }
+
+    @Basic
+    @Column(name = "shipping_cost")
     public double getShipping_cost() {
         return shipping_cost;
     }
@@ -84,58 +98,8 @@ public class OrderVO {
         this.shipping_cost = shipping_cost;
     }
 
-    public double getTotal_cost() {
-        return total_cost;
-    }
-
-    public int getTotal_cost_in_cents(){
-        return (int) total_cost*100;
-    }
-
-    public void setTotal_cost(double total_cost) {
-        this.total_cost = total_cost;
-    }
-
-    public Timestamp getCreateddt() {
-        return createddt;
-    }
-
-    public void setCreateddt(Timestamp createddt) {
-        this.createddt = createddt;
-    }
-
-    public UserVO getUserVO() {
-        return userVO;
-    }
-
-    public void setUserVO(UserVO userVO) {
-        this.userVO = userVO;
-    }
-
-    public long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
-    }
-
-    public ArrayList<OrderItemVO> getOrderItemVOArrayList() {
-        return orderItemVOArrayList;
-    }
-
-    public void setOrderItemVOArrayList(ArrayList<OrderItemVO> orderItemVOArrayList) {
-        this.orderItemVOArrayList = orderItemVOArrayList;
-    }
-
-    public String getOther_instructions() {
-        return other_instructions;
-    }
-
-    public void setOther_instructions(String other_instructions) {
-        this.other_instructions = other_instructions;
-    }
-
+    @Basic
+    @Column(name = "tax")
     public double getTax() {
         return tax;
     }
@@ -144,6 +108,52 @@ public class OrderVO {
         this.tax = tax;
     }
 
+
+    @Basic
+    @Column(name = "total_cost")
+    public double getTotal_cost() {
+        return total_cost;
+    }
+
+    public void setTotal_cost(double total_cost) {
+        this.total_cost = total_cost;
+    }
+
+
+    @Basic
+    @Column(name = "createddt")
+    public Timestamp getCreateddt() {
+        return createddt;
+    }
+
+    public void setCreateddt(Timestamp createddt) {
+        this.createddt = createddt;
+    }
+
+    @Basic
+    @Column(name = "user_id")
+    public long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
+
+
+    @Basic
+    @Column(name = "other_instructions")
+    public String getOther_instructions() {
+        return other_instructions;
+    }
+
+    public void setOther_instructions(String other_instructions) {
+        this.other_instructions = other_instructions;
+    }
+
+
+    @Basic
+    @Column(name = "sub_total")
     public double getSub_total() {
         return sub_total;
     }
@@ -152,20 +162,13 @@ public class OrderVO {
         this.sub_total = sub_total;
     }
 
-
+    @Basic
+    @Column(name = "order_state")
     public String getOrder_state() {
         return order_state;
     }
 
     public void setOrder_state(String order_state) {
         this.order_state = order_state;
-    }
-
-    public PaymentVO getPaymentVO() {
-        return paymentVO;
-    }
-
-    public void setPaymentVO(PaymentVO paymentVO) {
-        this.paymentVO = paymentVO;
     }
 }

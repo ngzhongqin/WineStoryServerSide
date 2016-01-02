@@ -1,10 +1,7 @@
-package com.winestory.serverside.handler.cart;
+package com.winestory.serverside.handler.order;
 
 import com.winestory.serverside.framework.JSONHelper;
-import com.winestory.serverside.framework.VO.OrderItemVO;
-import com.winestory.serverside.framework.VO.OrderVO;
-import com.winestory.serverside.framework.VO.UserVO;
-import com.winestory.serverside.framework.VO.WineVO;
+import com.winestory.serverside.framework.VO.*;
 import com.winestory.serverside.framework.database.DAO.WineDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
 import org.apache.log4j.Logger;
@@ -15,30 +12,29 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by zhongqinng on 30/8/15.
- * CartJSONHelper
+ * Created by zhongqinng on 27/12/15.
+ * OrderJSONHelper
  */
-public class CartJSONHelper {
-    public Logger logger = Logger.getLogger(CartJSONHelper.class);
+public class OrderJSONHelper {
+    public Logger logger = Logger.getLogger(OrderJSONHelper.class);
     private JSONHelper jsonHelper;
-    public CartJSONHelper(){
+    public OrderJSONHelper(){
         jsonHelper = new JSONHelper();
     }
 
     public OrderVO getOrderVO(JSONObject data,UserVO userVO, PersistenceManager persistenceManager){
         OrderVO orderVO = new OrderVO();
         JSONObject checkout = jsonHelper.getJSONObject(data, "checkout");
-        String name = jsonHelper.getString(checkout, "name");
+        String full_name = jsonHelper.getString(checkout, "full_name");
         String email = jsonHelper.getString(checkout, "email");
         String address = jsonHelper.getString(checkout,"address");
         String postal_code = jsonHelper.getString(checkout,"postal_code");
         String mobile = jsonHelper.getString(checkout,"mobile");
         String other_instructions = jsonHelper.getString(checkout,"other_instructions");
 
-        logger.info("OrderVO name: "+name+" email:"+email+" address:"+address
-                +" postal_code:"+postal_code+" mobile:"+mobile+" other_instructions:"+other_instructions);
 
-        orderVO.setFull_name(name);
+
+        orderVO.setFull_name(full_name);
         orderVO.setEmail(email);
         orderVO.setAddress(address);
         orderVO.setPostal_code(postal_code);
@@ -55,10 +51,23 @@ public class CartJSONHelper {
         }
 
         JSONObject ngCart = jsonHelper.getJSONObject(data,"ngCart");
-        JSONObject cart = jsonHelper.getJSONObject(ngCart,"$cart");
+        JSONObject cart = jsonHelper.getJSONObject(ngCart, "$cart");
         JSONArray items = jsonHelper.getJSONArray(cart, "items");
         ArrayList<OrderItemVO> orderItemVOArrayList = getOrderItemVO(items, persistenceManager);
         orderVO.setOrderItemVOArrayList(orderItemVOArrayList);
+
+        String token = jsonHelper.getString(data, "token");
+
+
+        PaymentVO paymentVO = new PaymentVO();
+        paymentVO.setToken(token);
+
+        orderVO.setPaymentVO(paymentVO);
+
+
+        logger.info("OrderVO full_name: " + full_name + " email:" + email + " address:" + address
+                + " postal_code:" + postal_code + " mobile:" + mobile
+                + " other_instructions:" + other_instructions + " token:"+token);
 
 
         return orderVO;
@@ -71,15 +80,17 @@ public class CartJSONHelper {
         int i = 0;
         while(i<size){
             try {
+                //Only getting the ID and quantity from client side.
                 int wine_id = jsonHelper.getInt(items.getJSONObject(i),"_id");
                 int quantity = jsonHelper.getInt(items.getJSONObject(i),"_quantity");
+
+                //The cost and details are gotten from the database.
                 WineVO wineVO = wineDAO.getWineVO(wine_id);
                 if(wineVO!=null){
                     OrderItemVO orderItemVO = new OrderItemVO();
                     orderItemVO.setName(wineVO.getName());
                     orderItemVO.setUnit_price(wineVO.getPrice());
                     orderItemVO.setWine_id(wine_id);
-//                    logger.info("orderItemVO.setWine_id(wine_id); wine_id:"+wine_id);
                     orderItemVO.setWineVO(wineVO);
                     if(quantity>0){
                         orderItemVO.setQuantity(quantity);
@@ -99,46 +110,7 @@ public class CartJSONHelper {
         return orderItemVOArrayList;
     }
 
-    public JSONObject getPrepCartJSON(OrderVO orderVO) {
-        JSONObject data = new JSONObject();
-
-        if(orderVO!=null){
-            try {
-                data.put("sub_total",orderVO.getSub_total());
-                data.put("tax",orderVO.getTax());
-                data.put("shipping_cost",orderVO.getShipping_cost());
-                data.put("total",orderVO.getTotal_cost());
-                data.put("email",orderVO.getEmail());
-                data.put("address",orderVO.getAddress());
-                data.put("mobile",orderVO.getMobile());
-                data.put("postal_code",orderVO.getPostal_code());
-                data.put("full_name",orderVO.getFull_name());
-                data.put("other_instructions",orderVO.getOther_instructions());
-
-                if(orderVO.getOrderItemVOArrayList()!=null){
-                    JSONArray items = new JSONArray();
-                    int size = orderVO.getOrderItemVOArrayList().size();
-                    int i = 0;
-                    while(i<size){
-                        JSONObject item = new JSONObject();
-                        item.put("name",orderVO.getOrderItemVOArrayList().get(i).getName());
-                        item.put("id",orderVO.getOrderItemVOArrayList().get(i).getWine_id());
-                        item.put("price",orderVO.getOrderItemVOArrayList().get(i).getUnit_price());
-                        item.put("quantity",orderVO.getOrderItemVOArrayList().get(i).getQuantity());
-                        items.put(item);
-                        i++;
-                    }
-                    data.put("items",items);
-
-                }else{
-                    logger.error("getPrepCartJSON; orderVO.getOrderItemVOArrayList() is null");
-                }
-            } catch (JSONException e) {
-                logger.error("getPrepCartJSON; JSONException");
-            }
-        }else{
-            logger.error("getPrepCartJSON; orderVO is null");
-        }
-        return data;
+    public JSONObject getSubmitOrderResponse(OrderVO orderVO) {
+        return null;
     }
 }

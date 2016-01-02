@@ -1,85 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4256406073">
-    <data-source source="LOCAL" name="PostgreSQL - winestory@localhost" uuid="808b50ca-e527-4d1d-91ec-7bb67dd3e671">
+  <component name="DataSourceManagerImpl" format="xml" hash="955051213">
+    <data-source source="LOCAL" name="PostgreSQL - winestory@192.168.1.152" uuid="808b50ca-e527-4d1d-91ec-7bb67dd3e671">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/winestory</jdbc-url>
+      <jdbc-url>jdbc:postgresql://192.168.1.152:5432/winestory</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="winestory/EclipseLink" uuid="396c41eb-9cc6-489b-bf40-0e19804b7cdc">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/winestory</jdbc-url>
+      <jdbc-url>jdbc:postgresql://192.168.1.152:5432/winestory</jdbc-url>
       <libraries>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/commons-collections-3.1.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/commons-collections-3.1.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/commons-configuration-1.5.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/commons-configuration-1.5.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/commons-digester-1.8.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/commons-digester-1.8.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/commons-lang-2.4.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/commons-lang-2.4.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/commons-logging.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/commons-logging.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/eclipselink.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/eclipselink.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/flex-messaging-core-3.2.0.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/flex-messaging-core-3.2.0.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/gson-2.2.2.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/gson-2.2.2.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/java-json.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/java-json.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/javax.persistence.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/javax.persistence.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/jcl-over-slf4j-1.7.2.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/jcl-over-slf4j-1.7.2.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/jetlang-0.2.0.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/jetlang-0.2.0.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/json-simple-1.1.1.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/json-simple-1.1.1.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/log4j-1.2.16.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/log4j-1.2.16.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/netty-all-4.0.30.Final.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/netty-all-4.0.30.Final.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/postgresql-9.4-1201.jdbc4.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/postgresql-9.4-1201.jdbc4.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/slf4j-log4j12-1.6.1.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/slf4j-log4j12-1.6.1.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/slf4j.api-1.6.1.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/slf4j.api-1.6.1.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/spring-aop-3.1.0.RELEASE.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/spring-aop-3.1.0.RELEASE.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/spring-beans-3.1.0.RELEASE.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/spring-beans-3.1.0.RELEASE.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/spring-context-3.1.0.RELEASE.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/spring-context-3.1.0.RELEASE.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/spring-core-3.1.0.RELEASE.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/spring-core-3.1.0.RELEASE.jar!/</url>
         </library>
         <library>
-          <url>jar://$PROJECT_DIR$/lib/spring-expression-3.1.0.RELEASE.jar!/</url>
+          <url>jar://$PROJECT_DIR$/../library/winestory/spring-expression-3.1.0.RELEASE.jar!/</url>
         </library>
       </libraries>
     </data-source>

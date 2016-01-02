@@ -21,8 +21,9 @@ public class OrderEntity {
     private double sub_total;
     private Timestamp createddt;
     private long user_id;
+    private long payment_id;
     private String other_instructions;
-
+    private String order_state;
 
     @Id
     @SequenceGenerator(name="order_id_seq",
@@ -131,6 +132,16 @@ public class OrderEntity {
     }
 
     @Basic
+    @Column(name = "payment_id")
+    public long getPayment_id() {
+        return payment_id;
+    }
+
+    public void setPayment_id(long payment_id) {
+        this.payment_id = payment_id;
+    }
+
+    @Basic
     @Column(name = "user_id")
     public long getUser_id() {
         return user_id;
@@ -139,7 +150,6 @@ public class OrderEntity {
     public void setUser_id(long user_id) {
         this.user_id = user_id;
     }
-
 
     @Basic
     @Column(name = "other_instructions")
@@ -160,5 +170,15 @@ public class OrderEntity {
 
     public void setSub_total(double sub_total) {
         this.sub_total = sub_total;
+    }
+
+    @Basic
+    @Column(name = "order_state")
+    public String getOrder_state() {
+        return order_state;
+    }
+
+    public void setOrder_state(String order_state) {
+        this.order_state = order_state;
     }
 }

@@ -29,5 +29,24 @@
     <orderEntry type="library" name="bcpkix-jdk15on-1.47-sources" level="project" />
     <orderEntry type="library" name="bcpkix-jdk15on-1.48" level="project" />
     <orderEntry type="library" name="lcrypto-jdk15" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/bcprov-jdk16-140.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/bcmail-jdk16-140.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="stripe-java-1.40.0" level="project" />
   </component>
 </module>
