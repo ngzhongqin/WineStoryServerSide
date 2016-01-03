@@ -183,7 +183,7 @@ public class OrderJSONHelper {
     private JSONObject loadOrderItemVOIntoJSON(OrderItemVO orderItemVO){
         JSONObject orderItemJSON = new JSONObject();
         try {
-            orderItemJSON.put("id",orderItemVO.getWine_id());
+            orderItemJSON.put("wine_id",orderItemVO.getWine_id());
             orderItemJSON.put("name",orderItemVO.getName());
             orderItemJSON.put("quantity",orderItemVO.getQuantity());
             orderItemJSON.put("unit_price",orderItemVO.getUnit_price());

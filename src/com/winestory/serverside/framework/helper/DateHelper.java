@@ -10,10 +10,14 @@ import java.text.SimpleDateFormat;
  */
 public class DateHelper {
     public static String returnDate(Timestamp timestamp){
-        String PATTERN="yyyy-MMM-dd";
-        SimpleDateFormat dateFormat=new SimpleDateFormat();
-        dateFormat.applyPattern(PATTERN);
-        String date1=dateFormat.format(timestamp.getTime());
+        String date1 = null;
+        if(timestamp!=null){
+            String PATTERN="yyyy-MMM-dd";
+            SimpleDateFormat dateFormat=new SimpleDateFormat();
+            dateFormat.applyPattern(PATTERN);
+            date1=dateFormat.format(timestamp.getTime());
+        }
+
 
         return date1;
     }
