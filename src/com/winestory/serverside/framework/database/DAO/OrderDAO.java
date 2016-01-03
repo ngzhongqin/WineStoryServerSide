@@ -2,16 +2,19 @@ package com.winestory.serverside.framework.database.DAO;
 
 import com.winestory.serverside.framework.VO.OrderVO;
 import com.winestory.serverside.framework.VO.PaymentVO;
+import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.constants.OrderState;
 import com.winestory.serverside.framework.constants.PaymentState;
 import com.winestory.serverside.framework.database.Entity.OrderEntity;
 import com.winestory.serverside.framework.database.Entity.OrderItemEntity;
 import com.winestory.serverside.framework.database.Entity.PaymentEntity;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.handler.order.OrderConstants;
 import org.apache.log4j.Logger;
 
 import javax.persistence.EntityTransaction;
 import java.sql.Timestamp;
+import java.util.*;
 
 
 /**
@@ -158,4 +161,56 @@ public class OrderDAO {
     }
 
 
+    public List<OrderEntity> getUserOrdersEntityList(UserVO userVO) {
+        List<OrderEntity> orderEntityList = null;
+        if(userVO!=null){
+            try {
+                Set order_state = new HashSet();
+                order_state.add(OrderState.CHARGE_SUCC);
+                order_state.add(OrderState.DELIVERY_PEND);
+                order_state.add(OrderState.DELIVERY_SUCC);
+
+                orderEntityList =
+                        persistenceManager.getEm()
+                                .createQuery("SELECT o FROM OrderEntity o where o.user_id = :user_id " +
+                                        "AND o.order_state IN :order_state")
+                                .setParameter("user_id", userVO.getId())
+                                .setParameter("order_state", order_state)
+                                .getResultList();
+            }catch (Exception e){
+                logger.error("getUserOrdersEntityList: ERROR: "+e.getMessage());
+            }
+
+        }else{
+            logger.error("getUserOrdersEntityList: userVO is NULL");
+        }
+        return orderEntityList;
+    }
+
+    public ArrayList<OrderVO> getUserOrderVOArrayList(UserVO userVO) {
+        ArrayList<OrderVO> orderVOArrayList = null;
+        List<OrderEntity> orderEntityList = getUserOrdersEntityList(userVO);
+        if(orderEntityList!=null){
+            orderVOArrayList = loadIntoVOList(orderEntityList);
+        }
+        return orderVOArrayList;
+    }
+
+    private ArrayList<OrderVO> loadIntoVOList(List<OrderEntity> orderEntityList) {
+        ArrayList<OrderVO> orderVOArrayList = new ArrayList<OrderVO>();
+        int size = orderEntityList.size();
+        logger.info("loadIntoVOList: size="+size);
+        int i = 0;
+        while(i<size){
+            OrderVO orderVO = new OrderVO();
+            orderVO.setId(orderEntityList.get(i).getId());
+            orderVO.setOrder_state(orderEntityList.get(i).getOrder_state());
+            orderVO.setCreateddt(orderEntityList.get(i).getCreateddt());
+            orderVO.setTotal_cost(orderEntityList.get(i).getTotal_cost());
+
+            orderVOArrayList.add(orderVO);
+            i++;
+        }
+        return orderVOArrayList;
+    }
 }

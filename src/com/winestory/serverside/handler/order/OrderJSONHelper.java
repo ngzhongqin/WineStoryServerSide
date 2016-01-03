@@ -2,6 +2,8 @@ package com.winestory.serverside.handler.order;
 
 import com.winestory.serverside.framework.JSONHelper;
 import com.winestory.serverside.framework.VO.*;
+import com.winestory.serverside.framework.constants.OrderState;
+import com.winestory.serverside.framework.constants.OrderStateTranslate;
 import com.winestory.serverside.framework.database.DAO.WineDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
 import org.apache.log4j.Logger;
@@ -111,6 +113,105 @@ public class OrderJSONHelper {
     }
 
     public JSONObject getSubmitOrderResponse(OrderVO orderVO) {
+        return loadOrderVOIntoJSON(orderVO);
+    }
+
+    public JSONObject getAllUserOrdersResponse(ArrayList<OrderVO> orderVOArrayList) {
+        return getJSONObject(orderVOArrayList);
+    }
+
+    public JSONObject getJSONObject(ArrayList<OrderVO> orderVOArrayList){
+        JSONArray jsonArray = new JSONArray();
+        int size = orderVOArrayList.size();
+        int i = 0;
+        while(i<size){
+            JSONObject orderJSON = loadOrderVOIntoJSON(orderVOArrayList.get(i));
+            jsonArray.put(orderJSON);
+            i++;
+        }
+        JSONObject jsonObject = new JSONObject();
+
+        try {
+            jsonObject.put("orders", jsonArray);
+
+        } catch (JSONException e) {
+            logger.error("getJSONObject: error:"+e.getMessage());
+            e.printStackTrace();
+        }
+
+        return jsonObject;
+    }
+
+    private JSONObject loadOrderVOIntoJSON(OrderVO orderVO){
+        JSONObject orderJSON = new JSONObject();
+        try {
+            orderJSON.put("id",orderVO.getId());
+            orderJSON.put("order_state",translateOrderState(orderVO.getOrder_state()));
+            orderJSON.put("tax",orderVO.getTax());
+            orderJSON.put("total_cost",orderVO.getTotal_cost());
+            orderJSON.put("sub_total",orderVO.getSub_total());
+            orderJSON.put("shipping_cost",orderVO.getShipping_cost());
+            orderJSON.put("createddt",orderVO.getCreateddt());
+            orderJSON.put("full_name",orderVO.getFull_name());
+            orderJSON.put("email",orderVO.getEmail());
+            orderJSON.put("address",orderVO.getAddress());
+            orderJSON.put("city",OrderConstants.CITY_SINGAPORE);
+            orderJSON.put("country",OrderConstants.COUNTRY_SINGAPORE);
+            orderJSON.put("postal_code",orderVO.getPostal_code());
+            orderJSON.put("mobile",orderVO.getMobile());
+            orderJSON.put("other_instructions",orderVO.getOther_instructions());
+
+            if(orderVO.getOrderItemVOArrayList()!=null){
+                JSONArray orderItems = new JSONArray();
+                int i = 0;
+                int size = orderVO.getOrderItemVOArrayList().size();
+                while(i<size){
+                    JSONObject orderItemJSON = loadOrderItemVOIntoJSON(orderVO.getOrderItemVOArrayList().get(i));
+                    orderItems.put(orderItemJSON);
+                    i++;
+                }
+                orderJSON.put("orderItems",orderItems);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return orderJSON;
+    }
+
+    private JSONObject loadOrderItemVOIntoJSON(OrderItemVO orderItemVO){
+        JSONObject orderItemJSON = new JSONObject();
+        try {
+            orderItemJSON.put("id",orderItemVO.getWine_id());
+            orderItemJSON.put("name",orderItemVO.getName());
+            orderItemJSON.put("quantity",orderItemVO.getQuantity());
+            orderItemJSON.put("unit_price",orderItemVO.getUnit_price());
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return orderItemJSON;
+    }
+
+    private String translateOrderState(String orderState){
+        if(OrderState.DELIVERY_SUCC.equals(orderState)){
+            return OrderStateTranslate.COMPLETED;
+        }
+        if(OrderState.DELIVERY_PEND.equals(orderState)){
+            return OrderStateTranslate.PENDING_DELIVERY;
+        }
+        if(OrderState.CHARGE_SUCC.equals(orderState)){
+            return OrderStateTranslate.PENDING_DELIVERY;
+        }
+        if(OrderState.ABANDON.equals(orderState)){
+            return OrderStateTranslate.INCOMPLETE;
+        }
+        if(OrderState.CHARGE_FAIL.equals(orderState)){
+            return OrderStateTranslate.INCOMPLETE;
+        }
+        if(OrderState.CHARGE_PEND.equals(orderState)){
+            return OrderStateTranslate.INCOMPLETE;
+        }
         return null;
     }
 }

@@ -2,12 +2,12 @@ package com.winestory.serverside.handler.order;
 
 import com.winestory.serverside.framework.JSONHelper;
 import com.winestory.serverside.framework.VO.OrderVO;
-import com.winestory.serverside.framework.VO.PaymentVO;
 import com.winestory.serverside.framework.VO.StatusVO;
 import com.winestory.serverside.framework.VO.UserVO;
 import com.winestory.serverside.framework.constants.OrderState;
 import com.winestory.serverside.framework.database.DAO.OrderDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.framework.payment.PaymentConstant;
 import com.winestory.serverside.framework.payment.StripePayment;
 import com.winestory.serverside.framework.response.HTTPResponder;
 import com.winestory.serverside.router.Router;
@@ -18,12 +18,13 @@ import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by zhongqinng on 27/12/15.
- * To accept Stripe Token
+ * Handle Orders
  */
 public class OrderHandler {
     public Logger logger = Logger.getLogger(OrderHandler.class);
@@ -46,19 +47,75 @@ public class OrderHandler {
             logger.info("No Params");
         }else{
 
-            if(OrderConstants.submitOrder.equals(action)){
-                logger.info("Action:"+ OrderConstants.submitOrder);
+            if(OrderConstants.ACTION_SUBMIT_ORDER.equals(action)){
+                logger.info("Action:"+ OrderConstants.ACTION_SUBMIT_ORDER);
                 submitOrder(ctx, fullHttpRequest, userVO);
+                return;
+            }
+
+            if(OrderConstants.ACTION_GET_ALL_USER_ORDERS.equals(action)){
+                logger.info("Action:"+ OrderConstants.ACTION_GET_ALL_USER_ORDERS);
+                getAllUserOrders(ctx, fullHttpRequest, userVO);
                 return;
             }
 
         }
     }
 
+    private void getAllUserOrders(ChannelHandlerContext channelHandlerContext,
+                                  FullHttpRequest fullHttpRequest,
+                                  UserVO userVO) {
+        logger.info("Method:"+ OrderConstants.ACTION_GET_ALL_USER_ORDERS);
+
+        logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
+
+        try {
+            if(reqString!=null) {
+                if(!reqString.isEmpty()) {
+
+                    //Get User inputs
+                    JSONObject incoming = new JSONObject(reqString);
+                    JSONHelper jsonHelper = new JSONHelper();
+                    JSONObject data = jsonHelper.getJSONObject(incoming, "data");
+
+                    OrderDAO orderDAO = new OrderDAO(persistenceManager);
+                    ArrayList<OrderVO> orderVOArrayList = orderDAO.getUserOrderVOArrayList(userVO);
+
+                    //response
+
+                    httpResponder.respond2(channelHandlerContext,
+                            fullHttpRequest,
+                            new OrderJSONHelper().getAllUserOrdersResponse(orderVOArrayList),
+                            getAllUserOrdersStatus(orderVOArrayList),
+                            null);
+
+                }else{
+                    logger.info("INCOMING REQUEST IS EMPTY!");
+                }
+            }
+        } catch (JSONException e) {
+            logger.error("incoming reqString that caused error: "+reqString);
+            e.printStackTrace();
+        }
+    }
+
+    private StatusVO getAllUserOrdersStatus(ArrayList<OrderVO> orderVOArrayList) {
+        if(orderVOArrayList!=null){
+            return new StatusVO(OrderConstants.CODE_GET_ALL_USER_ORDERS_SUCC,
+                    OrderConstants.MSG_GET_ALL_USER_ORDERS_SUCC,
+                    OrderConstants.COLOUR_GET_ALL_USER_ORDERS_SUCC);
+        }else{
+            return new StatusVO(OrderConstants.CODE_GET_ALL_USER_ORDERS_FAIL,
+                    OrderConstants.MSG_GET_ALL_USER_ORDERS_FAIL,
+                    OrderConstants.COLOUR_GET_ALL_USER_ORDERS_FAIL);
+        }
+    }
+
     private void submitOrder(ChannelHandlerContext channelHandlerContext,
                           FullHttpRequest fullHttpRequest,
                           UserVO userVO) {
-        logger.info("Method:"+ OrderConstants.submitOrder);
+        logger.info("Method:"+ OrderConstants.ACTION_SUBMIT_ORDER);
 
         logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
         String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
@@ -131,7 +188,7 @@ public class OrderHandler {
     }
 
     private Number getTax(Number sub_total) {
-        Number tax =sub_total.doubleValue() * 0.07;
+        Number tax =sub_total.doubleValue() * PaymentConstant.gst;
         logger.info("getTax: $"+tax);
         return tax;
     }
@@ -139,7 +196,7 @@ public class OrderHandler {
     private Number getShippingCost(Number sub_total) {
         Number shipping_cost = 0;
         if(sub_total.doubleValue()<200){
-            shipping_cost =  20;
+            shipping_cost =  PaymentConstant.shipping_cost;
         }else {
             shipping_cost =  0;
         }

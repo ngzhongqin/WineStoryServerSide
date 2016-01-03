@@ -56,8 +56,8 @@ public class StoreJSONHelper {
         int size = wineEntityList.size();
         int i = 0;
         while(i<size){
-            JSONObject taskJSON = loadTaskEntityIntoJSON(wineEntityList.get(i));
-            jsonArray.put(taskJSON);
+            JSONObject wineJSON = loadWineEntityIntoJSON(wineEntityList.get(i));
+            jsonArray.put(wineJSON);
             i++;
         }
         JSONObject jsonObject = new JSONObject();
@@ -73,7 +73,7 @@ public class StoreJSONHelper {
         return jsonObject;
     }
 
-    private JSONObject loadTaskEntityIntoJSON(WineEntity wineEntity){
+    private JSONObject loadWineEntityIntoJSON(WineEntity wineEntity){
         JSONObject wineJSON = new JSONObject();
         try {
             wineJSON.put("id",wineEntity.getId());
@@ -101,7 +101,7 @@ public class StoreJSONHelper {
         JSONObject jsonObject = new JSONObject();
 
         try {
-            jsonObject.put("wine", loadTaskEntityIntoJSON(wineEntity));
+            jsonObject.put("wine", loadWineEntityIntoJSON(wineEntity));
 
         } catch (JSONException e) {
             logger.error("getJSONObject: error:"+e.getMessage());
