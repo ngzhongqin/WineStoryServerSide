@@ -215,4 +215,8 @@ public class OrderJSONHelper {
         }
         return null;
     }
+
+    public JSONObject getSingleOrder(OrderVO orderVO) {
+        return loadOrderVOIntoJSON(orderVO);
+    }
 }

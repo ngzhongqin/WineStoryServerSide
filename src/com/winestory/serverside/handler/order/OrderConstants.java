@@ -10,6 +10,7 @@ public class OrderConstants {
 
     public static String ACTION_SUBMIT_ORDER = "SUBMIT_ORDER";
     public static String ACTION_GET_ALL_USER_ORDERS = "GET_ALL_USER_ORDERS";
+    public static String ACTION_GET_SINGLE_ORDER = "GET_SINGLE_ORDER";
 
     public static String COLOUR_ORDER_SUCC = "G";
     public static String CODE_ORDER_SUCC = "ORD001-100";
@@ -26,6 +27,14 @@ public class OrderConstants {
     public static String COLOUR_GET_ALL_USER_ORDERS_FAIL = "R";
     public static String CODE_GET_ALL_USER_ORDERS_FAIL = "ORD002-601";
     public static String MSG_GET_ALL_USER_ORDERS_FAIL  = "We can't seem to find any prior orders.";
+
+    public static String COLOUR_GET_SINGLE_ORDER_SUCC = "G";
+    public static String CODE_GET_SINGLE_ORDER_SUCC = "ORD003-100";
+    public static String MSG_GET_SINGLE_ORDER_SUCC  = "Here are the order details.";
+
+    public static String COLOUR_GET_SINGLE_ORDER_FAIL = "R";
+    public static String CODE_GET_SINGLE_ORDER_FAIL = "ORD003-601";
+    public static String MSG_GET_SINGLE_ORDER_FAIL  = "We can't seem to find this order.";
 
 
 }

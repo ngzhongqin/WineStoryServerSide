@@ -42,6 +42,7 @@ public class OrderHandler {
         String action = router.getAction();
         Map<String,List<String>> params = router.getParameters();
         UserVO userVO = router.getUser();
+        int order_id = router.getParamInt("order");
 
         if(params.isEmpty()){
             logger.info("No Params");
@@ -59,6 +60,62 @@ public class OrderHandler {
                 return;
             }
 
+            if(OrderConstants.ACTION_GET_SINGLE_ORDER.equals(action)){
+                logger.info("Action:"+ OrderConstants.ACTION_GET_SINGLE_ORDER);
+                getSingleOrder(ctx, fullHttpRequest, userVO, order_id);
+                return;
+            }
+
+        }
+    }
+
+    private void getSingleOrder(ChannelHandlerContext channelHandlerContext,
+                                FullHttpRequest fullHttpRequest,
+                                UserVO userVO, int order_id) {
+        logger.info("Method:"+ OrderConstants.ACTION_GET_SINGLE_ORDER);
+
+        logger.info("content:"+fullHttpRequest.content().toString(CharsetUtil.UTF_8));
+        String reqString = fullHttpRequest.content().toString(CharsetUtil.UTF_8);
+
+        try {
+            if(reqString!=null) {
+                if(!reqString.isEmpty()) {
+
+                    //Get User inputs
+                    JSONObject incoming = new JSONObject(reqString);
+                    JSONHelper jsonHelper = new JSONHelper();
+                    JSONObject data = jsonHelper.getJSONObject(incoming, "data");
+
+                    OrderDAO orderDAO = new OrderDAO(persistenceManager);
+                    OrderVO orderVO = orderDAO.getOrderVO(order_id,userVO);
+
+                    //response
+
+                    httpResponder.respond2(channelHandlerContext,
+                            fullHttpRequest,
+                            new OrderJSONHelper().getSingleOrder(orderVO),
+                            getSingleOrderStatus(orderVO),
+                            null);
+
+                }else{
+                    logger.info("INCOMING REQUEST IS EMPTY!");
+                }
+            }
+        } catch (JSONException e) {
+            logger.error("incoming reqString that caused error: "+reqString);
+            e.printStackTrace();
+        }
+    }
+
+    private StatusVO getSingleOrderStatus(OrderVO orderVO) {
+        if(orderVO!=null){
+            return new StatusVO(OrderConstants.CODE_GET_SINGLE_ORDER_SUCC,
+                    OrderConstants.MSG_GET_SINGLE_ORDER_SUCC,
+                    OrderConstants.COLOUR_GET_SINGLE_ORDER_SUCC);
+        }else{
+            return new StatusVO(OrderConstants.CODE_GET_SINGLE_ORDER_FAIL,
+                    OrderConstants.MSG_GET_SINGLE_ORDER_FAIL,
+                    OrderConstants.COLOUR_GET_SINGLE_ORDER_FAIL);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.winestory.serverside.framework.database.DAO;
 
+import com.winestory.serverside.framework.VO.OrderItemVO;
 import com.winestory.serverside.framework.VO.OrderVO;
 import com.winestory.serverside.framework.VO.PaymentVO;
 import com.winestory.serverside.framework.VO.UserVO;
@@ -212,5 +213,76 @@ public class OrderDAO {
             i++;
         }
         return orderVOArrayList;
+    }
+
+    public OrderVO getOrderVO(int order_id, UserVO userVO) {
+        OrderVO orderVO = null;
+        OrderEntity orderEntity = getOrderEntity(order_id);
+        if(orderEntity!=null){
+            if(orderEntity.getUser_id()==userVO.getId()){
+                orderVO=loadOrderEntityIntoOrderVO(orderEntity);
+                orderVO=loadOrderItemsIntoOrderVO(orderVO,order_id);
+            }
+        }
+        return orderVO;
+    }
+
+    private OrderVO loadOrderItemsIntoOrderVO(OrderVO orderVO, int order_id) {
+        List<OrderItemEntity> orderItemEntityList = getOrderItemEntityList(order_id);
+        if(orderItemEntityList!=null){
+            ArrayList<OrderItemVO> orderItemVOArrayList = new ArrayList<>();
+            int i = 0;
+            int size = orderItemEntityList.size();
+            while(i<size){
+                OrderItemVO orderItemVO = new OrderItemVO();
+                orderItemVO.setId(orderItemEntityList.get(i).getId());
+                orderItemVO.setQuantity(orderItemEntityList.get(i).getQuantity());
+                orderItemVO.setWine_id(orderItemEntityList.get(i).getWine_id());
+                orderItemVO.setUnit_price(orderItemEntityList.get(i).getUnit_price());
+                orderItemVO.setName(orderItemEntityList.get(i).getName());
+                orderItemVO.setCreateddt(orderItemEntityList.get(i).getCreateddt());
+                orderItemVOArrayList.add(orderItemVO);
+                i++;
+            }
+            orderVO.setOrderItemVOArrayList(orderItemVOArrayList);
+        }
+        return orderVO;
+    }
+
+    private OrderVO loadOrderEntityIntoOrderVO(OrderEntity orderEntity){
+        OrderVO orderVO= null;
+        if(orderEntity!=null){
+            orderVO = new OrderVO();
+            orderVO.setId(orderEntity.getId());
+            orderVO.setTotal_cost(orderEntity.getTotal_cost());
+            orderVO.setCreateddt(orderEntity.getCreateddt());
+            orderVO.setOrder_state(orderEntity.getOrder_state());
+            orderVO.setEmail(orderEntity.getEmail());
+            orderVO.setAddress(orderEntity.getAddress());
+            orderVO.setFull_name(orderEntity.getFull_name());
+            orderVO.setMobile(orderEntity.getMobile());
+            orderVO.setOther_instructions(orderEntity.getOther_instructions());
+            orderVO.setPostal_code(orderEntity.getPostal_code());
+            orderVO.setTax(orderEntity.getTax());
+            orderVO.setShipping_cost(orderEntity.getShipping_cost());
+            orderVO.setSub_total(orderEntity.getSub_total());
+        }
+        return orderVO;
+    }
+
+    public List<OrderItemEntity> getOrderItemEntityList(int order_id) {
+        List<OrderItemEntity> orderItemEntityList = null;
+            try {
+                orderItemEntityList =
+                        persistenceManager.getEm()
+                                .createQuery("SELECT o FROM OrderItemEntity o where o.order_id = :order_id ")
+                                .setParameter("order_id", order_id)
+                                .getResultList();
+            }catch (Exception e){
+                logger.error("getOrderItemEntityList: ERROR: "+e.getMessage());
+            }
+
+
+        return orderItemEntityList;
     }
 }
