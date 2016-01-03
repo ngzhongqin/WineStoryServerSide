@@ -6,6 +6,7 @@ import com.winestory.serverside.framework.constants.OrderState;
 import com.winestory.serverside.framework.constants.OrderStateTranslate;
 import com.winestory.serverside.framework.database.DAO.WineDAO;
 import com.winestory.serverside.framework.database.PersistenceManager;
+import com.winestory.serverside.framework.helper.DateHelper;
 import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -151,7 +152,7 @@ public class OrderJSONHelper {
             orderJSON.put("total_cost",orderVO.getTotal_cost());
             orderJSON.put("sub_total",orderVO.getSub_total());
             orderJSON.put("shipping_cost",orderVO.getShipping_cost());
-            orderJSON.put("createddt",orderVO.getCreateddt());
+            orderJSON.put("createddt", DateHelper.returnDate(orderVO.getCreateddt()));
             orderJSON.put("full_name",orderVO.getFull_name());
             orderJSON.put("email",orderVO.getEmail());
             orderJSON.put("address",orderVO.getAddress());
